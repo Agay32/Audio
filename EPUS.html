@@ -1,0 +1,2538 @@
+
+<!DOCTYPE html>
+
+<html lang="id">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noindex, follow">
+                    <link rel="shortcut icon" type="image/png" href="https://karawang.epuskesmas.id/images/favicon.png">
+        
+                    <title>e-Puskesmas - Pendaftaran</title>
+                <!-- Bootstrap core CSS -->
+        <link href="https://karawang.epuskesmas.id/lib/bootstrap/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+        <!-- Font Awesome -->
+        <link href="https://karawang.epuskesmas.id/lib/font-awesome/css/font-awesome.min.css" type="text/css" rel="stylesheet">
+        <link href="https://karawang.epuskesmas.id/lib/infokes-font/css/infokes_font.css" type="text/css" rel="stylesheet">
+        <!-- Datetime picker -->
+        <link href="https://karawang.epuskesmas.id/lib/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css" type="text/css" rel="stylesheet">
+        <!-- Custom CSS -->
+        <link href="https://karawang.epuskesmas.id/css/custom.min.css?v=1" type="text/css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="https://karawang.epuskesmas.id/css/epusv3-style.css?v=3.8">
+
+                    <link href="https://karawang.epuskesmas.id/css/animate.css" type="text/css" rel="stylesheet">
+            <link href="https://karawang.epuskesmas.id/lib/jquery-ui/css/jquery-ui-autocomplete.min.css" type="text/css" rel="stylesheet">
+            <link href="https://karawang.epuskesmas.id/lib/taggd/dist/taggd.css" type="text/css" rel="stylesheet">
+            <link href="https://karawang.epuskesmas.id/lib/laporan/master_style.css" type="text/css" rel="stylesheet">
+                
+        <style type="text/css">
+
+            #notif-connection-bpjs{
+                z-index: 999999;
+                background-color: #fde2a5;
+                display: initial;
+                position: fixed;
+                left: 3%;
+                bottom: 30px;
+                padding: 10px;
+                width: 18%;
+            }
+
+            #x-close {
+                position: absolute;
+                border-radius: 22px;
+                background: red;
+                color: white;
+                top: -10px;
+                right: -10px;
+            }
+
+            @media  only screen and (max-width: 450px) {
+                #notif-connection-bpjs{
+                    width: 92%;
+                }
+            }
+
+
+            .hidden {
+                display: none !important;
+            }
+
+            div.phpdebugbar-widgets-sqlqueries li.phpdebugbar-widgets-list-item.phpdebugbar-widgets-sql-duplicate {
+                background-color: yellow !important;
+            }
+
+            .validatecurrency {
+                text-align: right;
+            }
+            .modal-new-menu-card {
+                margin: 20px 20px;
+            }
+            .img-modal-new-menu {
+                width: 359px;
+                height: 216px;filter: drop-shadow(0px 4px 10px rgba(0, 0, 0, 0.05));
+                padding-bottom: 10px;
+            }
+            .card-newMenu {
+                text-align: left;
+                box-sizing: border-box;
+                border: 1px solid #DDDDDD;
+                box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05);
+                border-radius: 10px;
+            }
+            .newMenu-warning {
+                position: absolute;
+                top: -5px;
+                left: 5px;
+                width: 24px;
+                height: 24px;
+                border-radius: 100%;
+                font-size: 17px;
+                background: orange;
+            }
+            .badge-new-menu {
+                background: red;
+                margin-left: 3px;
+                font-size: 10px;
+                position: absolute;
+            }
+
+            .btn:not(.btn-link):not(.btn-circle).btn-primary.bordered {
+                background-color: #fff !important;
+                color: #007BFF;
+                border: 1px solid #007BFF;
+            }
+
+            .btn-gray {
+                background-color: #B6B6B6;
+                color: #fff;
+                border: 1px solid #B6B6B6;
+            }
+
+            .swal2-styled.swal2-confirm {
+                border: 1px solid #007BFF;
+                color: #FFF;
+                background-color: #007BFF;
+                width: 300px;
+            }
+        </style>
+        <style>
+.btn:not(.btn-link):not(.btn-circle).btn-success.bordered {
+  background-color: #fff !important;
+  color: #2b982b;
+  border: 1px solid #2b982b;
+}
+.label-oranye {
+    background-color: #FF9600;
+}
+.label-success {
+    background-color: #18AF7C;
+}
+.label-danger {
+    background-color: #D3555C;
+}
+.label-warning {
+    background-color: #FFC043;
+}
+[class^='select2'] {
+    border-radius: 0 !important;
+}
+.tooltip {
+  position: relative;
+  display: inline-block;
+  opacity: 1!important;
+  line-height: 1.2;
+  padding: .2em .6em .1em .6em;
+  font-size: 12px;
+  z-index: 0;
+  margin-top: 2px;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 350px;
+  background-color: black;
+  color: #fff;
+  text-align: left;
+  border-radius: 6px;
+  padding: 8px 10px;
+  left: 0px;
+  top: 20px;
+
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
+    .flex-main-kronis {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 4px;
+        max-width:350px;
+        flex-wrap:wrap;
+    }
+
+    .flex-sub-kronis {
+        color: #D3555C;
+        background: #FAEEEE;
+    }
+</style>
+<link href="https://karawang.epuskesmas.id/lib/select2/css/select2.min.css" type="text/css" rel="stylesheet">
+<link href="https://karawang.epuskesmas.id/css/epusv3-style.css" type="text/css" rel="stylesheet">
+<style>
+    .form-group {
+        margin-bottom: 15px;
+    }
+    .btn:not(.btn-link):not(.btn-circle).btn-danger.bordered {
+        background-color: #fff !important;
+        color: #fb483a;
+        border: 1px solid #fb483a;
+    }
+    input[type="radio"].readonly {
+        pointer-events: none;
+    }
+    label.readonly {
+        pointer-events: none;
+    }
+</style>
+<style>
+    .delete-icon-lock {
+        font-size: 32px;
+        color: #ff9600 !important;
+    }
+</style>
+    </head>
+    <script type="04a95c20435de6f62c74625e-text/javascript">
+        const isEpuskesmas = () => "1";
+    </script>
+    <body class="v2-body">
+                            <script type="04a95c20435de6f62c74625e-text/javascript">
+	var cloud_host = "";
+					localStorage.setItem("epuskesmas-cloud-server", cloud_host);
+</script>
+	<script type="04a95c20435de6f62c74625e-text/javascript">
+		if('serviceWorker' in navigator){
+			localStorage.removeItem('epuskesmas-cloud-server');
+			localStorage.removeItem('epuskesmas-connection-status');
+		    navigator.serviceWorker.getRegistrations().then(function(registrations) {
+			    for(let registration of registrations) {
+		            registration.unregister()
+			    }
+			})
+		}
+	</script>
+                <div class="bg-loading"></div>
+        <nav class="navbar navbar-default navbar-static-top">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="https://karawang.epuskesmas.id"></a>
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="fa fa-caret-square-o-down"></span>
+                    </button>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                                                                                               <ul class="nav navbar-nav ">
+                                                                                                            <li class="dropdown">
+                                            <a id="menu_pendaftaran" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Pendaftaran <span class="caret"></span></a>
+                                            <ul class="dropdown-menu">
+                                                                                                <li><a id="menu_pendaftaran_pasien" pjax-content href="https://karawang.epuskesmas.id/pasien?broadcastNotif=1">Pasien &amp; KK</a></li>
+                                                                                                                                                <li><a id="menu_pendaftaran_pendaftaran" href="https://karawang.epuskesmas.id/pendaftaran?broadcastNotif=1">Pendaftaran Pasien</a></li>
+                                                                                                                                                <li><a id="menu_pendaftaran_rekammedis" href="https://karawang.epuskesmas.id/rekammedis">Rekam Medis</a></li>
+                                                                                                 
+                                                <li id="kiosk_pendaftaran_feature">
+                                                    <a href="javascript:void(0)" onclick="if (!window.__cfRLUnblockHandlers) return false; window.open(
+                                                            'https://karawang.epuskesmas.id/antreanpendaftaran?fullscreen=antrian',
+                                                            'Antrian',
+                                                            'menubar=no,location=no,fullscreen=yes,scrollbars=auto'
+                                                        );" data-cf-modified-04a95c20435de6f62c74625e-="">
+                                                        Antrean
+                                                    </a>
+                                                </li>
+                                                                                                                                                <li id="kiosk_panggilan_feature">
+                                                    <a id="menu_pendaftaran_rekammedis" href="https://karawang.epuskesmas.id/loket/index">
+                                                        Panggil Antrean
+                                                    </a>
+                                                </li>
+                                                                                            </ul>
+                                        </li>
+                                    
+                                                                            <li class="dropdown">
+                                            <a id="menu_pelayanan" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Pelayanan <span class="caret"></span></a>
+                                            <ul class="dropdown-menu">
+                                                                                                    <li class="dropdown-header"><span class="label label-default">Pelayanan</span></li>
+                                                                                                        <li><a id="menu_pelayanan_medis" href="https://karawang.epuskesmas.id/pelayanan?broadcastNotif=1">Medis</a></li>
+                                                                                                                                                                                                                <li><a id="menu_pelayanan_medis_inap" href="https://karawang.epuskesmas.id/pelayananrawatinap?broadcastNotif=1">Rawat Inap</a></li>
+                                                                                                                                                            <li><a id="menu_pelayanan_resep" pjax-content href="https://karawang.epuskesmas.id/resep?broadcastNotif=1">Resep</a></li>
+                                                                                                                                                            <li><a id="menu_pelayanan_obat_pasien" pjax-content href="https://karawang.epuskesmas.id/obatpasien?broadcastNotif=1">Obat Pasien</a></li>
+                                                                                                                                                                                                                <li><a id="menu_pelayanan_diare_advokasi" pjax-content href="https://karawang.epuskesmas.id/diareadvokasi">Diare Advokasi</a></li>
+                                                                                                                                                                                                                                                                
+                                                                                                    <li class="dropdown-header"><span class="label label-default">Pelayanan Luar Gedung</span></li>
+                                                                                                            <li><a id="menu_skrininganaksekolah" href="https://karawang.epuskesmas.id/siswa">Skrining Anak Sekolah</a></li>
+                                                                                                                                                                                                                    <li><a id="menu_skriningptm" href="https://karawang.epuskesmas.id/skrining/ptm">Skrining PTM</a></li>
+                                                                                                                                                                <li><a id="menu_skrininglansia" href="https://karawang.epuskesmas.id/skrining/lansia">Skrining Lansia</a></li>
+                                                                                                                                                                                                                    <li><a id="menu_sinkronisasidatasihepi" href="https://karawang.epuskesmas.id/sinkronisasidatasihepi?type=hepc">Sinkronisasi Data Sihepi</a></li>
+                                                                                                                                                                <li><a id="menu_kegiatankelompok" href="https://karawang.epuskesmas.id/kegiatankelompok">Kegiatan Kelompok</a></li>
+                                                                                                                                                                <li><a id="menu_penyuluhan_bpjs" href="https://karawang.epuskesmas.id/penyuluhan_bpjs">Sinkronisasi BPJS - Penyuluhan Kesehatan</a></li>
+                                                     
+                                                
+                                                                                                    <li class="dropdown-header"><span class="label label-default">Pemeriksaan</span></li>
+                                                                                                        <li><a id="menu_pelayanan_laboratorium" pjax-content href="https://karawang.epuskesmas.id/laboratorium?broadcastNotif=1">Laboratorium</a></li>
+                                                                                                                                                            <li><a id="menu_pelayanan_pemeriksaan_air" pjax-content href="https://karawang.epuskesmas.id/pemeriksaanair">Pemeriksaan Air</a></li>
+                                                                                                    
+                                                                                                    <li class="dropdown-header"><span class="label label-default">Pasien Pulang</span></li>
+                                                                                                        <li><a id="menu_pelayanan_rujukan_external" pjax-content href="https://karawang.epuskesmas.id/rujukanexternal">Rujukan External</a></li>
+                                                    
+                                                                                                        <li><a id="menu_pelayanan_pasienmeninggal" pjax-content href="https://karawang.epuskesmas.id/pasienmeninggal">Pasien Meninggal</a></li>
+                                                                                                                                                            <li><a id="menu_pelayanan_bayar_tindakan" pjax-content href="https://karawang.epuskesmas.id/pembayaran">Pembayaran</a></li>
+                                                                                                                                                            <li><a id="menu_daftar_shift" pjax-content href="https://karawang.epuskesmas.id/daftarshift">Daftar Shift</a></li>
+                                                                                                                                                            <li><a id="menu_pelayanan_bayar_tindakan" pjax-content href="https://karawang.epuskesmas.id/pembayarandetail">Detail Transaksi</a></li>
+                                                                                                    
+                                                                                                    <li class="dropdown-header"><span class="label label-default">Survey Kepuasan/Testimoni Pasien</span></li>
+                                                                                                        <li><a id="menu_pelayanan_survey" pjax-content href="https://karawang.epuskesmas.id/surveytestimoni">Survey Kepuasan & Testimoni Pasien</a></li>
+                                                                                                                                                            <li><a id="menu_pelayanan_survey" pjax-content href="https://karawang.epuskesmas.id/surveytestimoni/data">Pengelolaan Survey Kepuasan & Testimoni Pasien</a></li>
+                                                                                                    
+                                                                                                    <li class="dropdown-header"><span class="label label-default">Lroa</span></li>
+                                                                                                        <li><a id="menu_pelayanan_lroa" pjax-content href="https://karawang.epuskesmas.id/lroa">Lroa</a></li>
+                                                                                                    
+                                                                                            </ul>
+                                        </li>
+                                                                    
+                                                                    <li class="dropdown">
+                                        <a id="menu_pengelolaan" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Pengelolaan <span class="caret"></span></a>
+                                        <ul class="dropdown-menu">
+                                                                                            <li class="dropdown-header"><span class="label label-default">Gudang Farmasi</span></li>
+                                                                                                <li><a id="menu_pengelolaan_pemesanan_obat" pjax-content href="https://karawang.epuskesmas.id/pemesananobat">Pemesanan Obat</a></li>
+                                                                                                                                                <li><a id="menu_pengelolaan_penerimaan_obat" pjax-content href="https://karawang.epuskesmas.id/penerimaanobat">Penerimaan Obat</a></li>
+                                                                                                                                                <li><a id="menu_stok_obat" pjax-content href="https://karawang.epuskesmas.id/stokobat">Stok Obat</a></li>
+                                                                                                                                                <li><a id="menu_stok_obat" pjax-content href="https://karawang.epuskesmas.id/stokobat/new">Stok Obat *</a></li>
+                                                                                                                                                <li><a id="menu_stok_opname" pjax-content href="https://karawang.epuskesmas.id/stokopname">Stok Opname</a></li>
+                                                                                                                                                                                                <li><a id="menu_distribusi_obat" pjax-content href="https://karawang.epuskesmas.id/distribusiobat">Distribusi Obat</a></li>
+                                                                                            
+                                                                                            <li class="dropdown-header"><span class="label label-default">Data Master</span></li>
+                                                                                                <li><a id="menu_pengelolaan_pegawai" pjax-content href="https://karawang.epuskesmas.id/mpegawai">Pegawai</a></li>
+                                                                                                                                                <li><a id="menu_pengelolaan_pengguna" pjax-content href="https://karawang.epuskesmas.id/user">Pengguna</a></li>
+                                                                                                                                                                                                <li><a id="menu_pengelolaan_mruangan" pjax-content href="https://karawang.epuskesmas.id/mruangan">Ruangan</a></li>
+                                                                                                                                                <li><a id="menu_pengelolaan_mruanganakses" pjax-content href="https://karawang.epuskesmas.id/mruanganakses">Ruangan Akses</a></li>
+                                                                                                                                                                                                                                                <li><a id="menu_pengelolaan_puskesmas" pjax-content href="https://karawang.epuskesmas.id/mpuskesmas">Puskesmas</a></li>
+                                                                                                                                                <li><a id="menu_master_pbf" pjax-content href="https://karawang.epuskesmas.id/mperlengkapan">Perlengkapan</a></li>
+                                                                                                                                                <li><a id="menu_sasaran_program" pjax-content href="https://karawang.epuskesmas.id/sasaranprogram">Sasaran Program</a></li>
+                                                                                                                                                                                                            <li><a id="menu_sasaran_proyeksi" pjax-content href="https://karawang.epuskesmas.id/sasaranproyeksi">Sasaran Proyeksi</a></li>
+                                                                                                                                                                                                    <li><a id="menu_pengelolaan_jadwal" pjax-content href="https://karawang.epuskesmas.id/mjadwal">Jadwal Pelayanan</a></li>
+                                                                                                                                                                                                <li><a id="menu_pelayanan_bayar_tindakan" pjax-content href="https://karawang.epuskesmas.id/shift">Jadwal Shift</a></li>
+                                                                                                                                                <li><a id="menu_pengelolaan_libur" pjax-content href="https://karawang.epuskesmas.id/mlibur">Libur</a></li>
+                                                                                                                                                <li><a id="menu_master_tindakan" pjax-content href="https://karawang.epuskesmas.id/master/tindakan">Data Tindakan</a></li>
+                                                                                                                                                <li><a id="menu_master_imunisasi" pjax-content href="https://karawang.epuskesmas.id/master/imunisasi">Data Imunisasi</a></li>
+                                                                                                                                                <li><a id="menu_pengelolaan_kamar" pjax-content href="https://karawang.epuskesmas.id/mkamar">Kamar & Bed</a></li>
+                                                                                                                                                <li><a id="menu_pengelolaan_msekolah" pjax-content href="https://karawang.epuskesmas.id/msekolah">Sekolah</a></li>
+                                                                                                                                                <li><a id="menu_pengelolaan_asuransi" pjax-content href="https://karawang.epuskesmas.id/masuransi">Asuransi</a></li>
+                                                                                                                                                <li><a id="menu_master_laboratorium" pjax-content href="https://karawang.epuskesmas.id/mjenislaboratorium">Laboratorium</a></li>
+                                                                                                                                                <li><a id="menu_master_paket_laboratorium" href="https://karawang.epuskesmas.id/mpaketlaboratorium">Paket Laboratorium</a></li>
+                                                                                                                                                <li><a id="menu_master_obat" pjax-content href="https://karawang.epuskesmas.id/mobat">Obat</a></li>
+                                                                                                                                                                                                <li id="kiosk_monitor_feature">
+                                                    <a id="menu_config_antrian" pjax-content href="https://karawang.epuskesmas.id/antrian">
+                                                        Konfigurasi Dashboard Antrian
+                                                    </a>
+                                                </li>
+                                                                                                                                                <li><a id="menu_config_konfigurasiform" pjax-content href="https://karawang.epuskesmas.id/konfigurasiform">Konfigurasi Form</a></li>
+                                                                                                                                                <li><a id="menu_config_konfigurasilaboratorium" pjax-content href="https://karawang.epuskesmas.id/konfigurasilaboratorium">Konfigurasi Laboratorium</a></li>
+                                                                                                                                                <li><a id="menu_config_konfigurasiobat" pjax-content href="https://karawang.epuskesmas.id/konfigurasiobat">Konfigurasi Obat</a></li>
+                                                                                                                                                                                                                                                <li><a id="menu_konfigurasi_layanankhusus" pjax-content href="https://karawang.epuskesmas.id/konfigurasilayanankhusus">Konfigurasi Layanan Khusus</a></li>
+                                                                                                                                                <li><a id="menu_konfigurasi_ilp" pjax-content href="https://karawang.epuskesmas.id/configilp">Konfigurasi Skrining ILP</a></li>
+                                                
+                                                                                                <li><a id="menu_master_asupan_makanan" pjax-content href="https://karawang.epuskesmas.id/masupanmakanan">Asupan Makanan</a></li>
+                                                                                                                                                <li><a id="menu_master_industri" pjax-content href="https://karawang.epuskesmas.id/mindustri">Industri</a></li>
+                                                                                                                                                <li><a id="menu_master_pbf" pjax-content href="https://karawang.epuskesmas.id/mpbf">PBF</a></li>
+                                                                                                                                                                                                                                                <li><a id="menu_master_metode_pembayaran" pjax-content href="https://karawang.epuskesmas.id/metode_pembayaran">Metode Pembayaran</a></li>
+                                                                                                                                                                                                <li><a id="menu_master_diagnosa" pjax-content href="https://karawang.epuskesmas.id/mdiagnosa">Diagnosa</a></li>
+                                                                                                                                                <li><a id="menu_master_template_print" pjax-content href="https://karawang.epuskesmas.id/templateprint">Template Print</a></li>
+                                                                                                                                                <li><a id="menu_signature_pegawai" pjax-content href="https://karawang.epuskesmas.id/signaturepegawai">Signature Pegawai</a></li>
+                                                                                                                                                <li><a id="menu_pengaturan_signature" pjax-content href="https://karawang.epuskesmas.id/pengaturansignature">Pengaturan Signature</a></li>
+                                                                                                                                                                                                                                                <li><a id="menu_master_kegiatan" pjax-content href="https://karawang.epuskesmas.id/mkegiatan">Kegiatan</a></li>
+                                                                                                                                                                                    <li><a id="menu_data_dasar_puskesmas" pjax-content href="https://karawang.epuskesmas.id/datadasarpuskesmas">Data Dasar Puskesmas</a></li>
+                                            
+                                                                                            <li class="dropdown-header"><span class="label label-default">BPJS</span></li>
+                                                                                                <li><a id="menu_pengelolaan_pengaturan_bpjs" pjax-content href="https://karawang.epuskesmas.id/cbpjs">Pengaturan BPJS</a></li>
+                                                                                                                                                <li><a id="menu_pengelolaan_bpjs_provider" pjax-content href="https://karawang.epuskesmas.id/mproviderbpjs">RS Provider BPJS</a></li>
+                                                                                                                                                <li><a id="menu_pengelolaan_bpjs_poli_fktl" pjax-content href="https://karawang.epuskesmas.id/mpolifktlbpjs">Poli FKTL BPJS</a></li>
+                                                                                                                                                <li><a id="menu_pengelolaan_bpjs_dokter" pjax-content href="https://karawang.epuskesmas.id/mdokterbpjs">Dokter BPJS</a></li>
+                                                                                                                                                <li><a id="menu_pengelolaan_bpjs_tindakan" pjax-content href="https://karawang.epuskesmas.id/mtindakanbpjs">Tindakan BPJS</a></li>
+                                                                                                                                                <li><a id="menu_pengelolaan_bpjs_laboratorium" pjax-content href="https://karawang.epuskesmas.id/mlaboratoriumbpjs">Laboratorium BPJS</a></li>
+                                                                                                                                                <li><a id="menu_pengelolaan_bpjs_obat" pjax-content href="https://karawang.epuskesmas.id/mobatbpjs">Obat BPJS</a></li>
+                                                                                                                                                <li><a id="menu_pengelolaan_bpjs_ruangan" pjax-content href="https://karawang.epuskesmas.id/mruanganbpjs">Ruangan BPJS</a></li>
+                                                                                                                                                <li><a id="menu_pengelolaan_bpjs_sinkron" pjax-content href="https://karawang.epuskesmas.id/switchbridgingasuransi">Pengaturan Bridging BPJS</a></li>
+                                                                                                                                                <li><a id="menu_pengelolaan_bpjs_sinkron" pjax-content href="https://karawang.epuskesmas.id/sinkronbpjs">Sinkron BPJS</a></li>
+                                                                                                                                                                                            
+                                            
+
+                                            
+                                                                                            <li class="dropdown-header"><span class="label label-default">SISRUTE</span></li>
+                                                                                                <li><a id="menu_konfigurasi_sisrute" href="https://karawang.epuskesmas.id/sisrute-configuration/credential">Konfigurasi</a></li>
+                                                                                                                                                <li><a id="menu_tujuan_rujukan_sisrute" href="https://karawang.epuskesmas.id/sisrute-configuration/faskes">Tujuan Rujukan</a></li>
+                                                                                                                                                <li><a id="menu_sisrute_kriteria_khusus" href="https://karawang.epuskesmas.id/msisrutekriteriakhusus">Kriteria Khusus</a></li>
+                                                                                                                                                <li><a id="menu_sisrute_sdm" href="https://karawang.epuskesmas.id/msisrutesdm">SDM</a></li>
+                                                                                                                                                <li><a id="menu_sisrute_ruang_perawatan" href="https://karawang.epuskesmas.id/msisruteruangperawatan">Ruang Perawatan</a></li>
+                                                                                                                                                <li><a id="menu_sisrute_pelayanan" href="https://karawang.epuskesmas.id/msisrutepelayanan">Pelayanan</a></li>
+                                                                                                                                                <li><a id="menu_sisrute_sarana" href="https://karawang.epuskesmas.id/msisrutesarana">Sarana</a></li>
+                                                                                                                                                <li><a id="menu_sisrute_kelas_perawatan" href="https://karawang.epuskesmas.id/msisrutekelasperawatan">Kelas Perawatan</a></li>
+                                                                                                                                                <li><a id="menu_sisrute_alkes" href="https://karawang.epuskesmas.id/msisrutealkes">Alkes</a></li>
+                                                                                            
+                                                                                            <li class="dropdown-header"><span class="label label-default">Master Wilayah</span></li>
+                                                                                                <li><a id="menu_wilayah_kerja" href="https://karawang.epuskesmas.id/wilayah-kerja">Wilayah Kerja</a></li>
+                                                                                                                                            
+                                            
+                                            
+                                                                                            <li class="dropdown-header"><span class="label label-default">Antrian</span></li>
+                                                                                                <li><a id="menu_data_retention" href="https://karawang.epuskesmas.id/antrian">Antrian</a></li>
+                                                                                                                                                                                        <li id="kiosk_speaker_feature" class="dropdown-header">
+                                                    <span class="label label-default">Speaker</span>
+                                                </li>
+                                                                                                <li id="kiosk_speaker_head_feature">
+                                                    <a id="menu_data_speaker" href="https://karawang.epuskesmas.id/speaker">
+                                                        Speaker
+                                                    </a>
+                                                </li>
+                                                                                                                                                                                                                                    <li class="dropdown-header"><span class="label label-default">Klinisia</span></li>
+                                                                                                <li><a id="menu_data_api_rekam_medis" href="https://karawang.epuskesmas.id/konfigurasiklinisiaapps">Konfigurasi Klinisia Apps </a></li>
+                                                                                                                                                                                        <li class="dropdown-header"><span class="label label-default">Satu Sehat</span></li>
+                                                                                                                                                    <li><a id="menu_data_api_rekam_medis" href="https://karawang.epuskesmas.id/konfigurasisatusehat/v2">Konfigurasi Satu Sehat <span style="color: red;">*</span></a></li>
+                                                                                                                                                                                </ul>
+                                    </li>
+                                
+                                                                    <li class="dropdown">
+                                        <a id="menu_gis" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">GIS <span class="caret"></span></a>
+                                        <ul class="dropdown-menu">
+                                                                                        <li><a id="menu_gis_pasien" href="https://karawang.epuskesmas.id/gis/patient">Pasien</a></li>
+                                                                                                                                    <li><a id="menu_gis_penyakit" href="https://karawang.epuskesmas.id/gis/penyakit">Penyakit</a></li>
+                                                                                    </ul>
+                                    </li>
+                                                                                                    <li class="dropdown">
+                                        <a id="menu_laporan" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Laporan <span class="caret"></span></a>
+                                        <ul class="dropdown-menu">
+                                                                                            <li class="dropdown-header"><span class="label label-default">Grafik</span></li>
+                                                <li><a id="grafik" pjax-content href="https://karawang.epuskesmas.id/grafik">Grafik</a></li>
+                                                                                                                                                                                    <li><a id="dashboardsip" pjax-content href="https://karawang.epuskesmas.id/dashboardsip">Dashboard SIP</a></li>
+                                                                                                                                                                                                                                <li><a id="dashboardlayananilp" pjax-content href="https://karawang.epuskesmas.id/dashboardlayananilp">Dashboard Layanan ILP</a></li>
+                                                                                                                                        <li><a id="dashboardskringilp" pjax-content href="https://karawang.epuskesmas.id/dashboardilp">Dashboard Skrining ILP</a></li>
+                                                                                        
+                                                                                            <li class="dropdown-header"><span class="label label-default">Monitoring</span></li>
+                                                                                                                                                                                                <li><a id="menu_monitoring_satusehat" pjax-content href="https://karawang.epuskesmas.id/monitoring-satusehat">Satu Sehat</a></li>
+                                                                                                                                            
+                                                                                            <li class="dropdown-header"><span class="label label-default">Laporan PTM</span></li>
+                                                                                                <li><a id="menu_monitoring_satusehat" pjax-content href="https://karawang.epuskesmas.id/ptm-report">Hasil Pelayanan PTM</a></li>
+                                                                                                                                                                                                                                    <li class="dropdown-header"><span class="label label-default">Laporan Harian</span></li>
+                                                                                                <li><a id="menu_laporan_pemeriksaan_Air" pjax-content href="https://karawang.epuskesmas.id/laporanpemeriksaanair">Laporan Pemeriksaan Air</a></li>
+                                                                                                                                                                                                <li><a id="menu_laporan_pendapatan_tindakan" pjax-content href="https://karawang.epuskesmas.id/laporanpendapatantindakan">Pendapatan Tindakan</a></li>
+                                                                                                                                                <li><a id="menu_laporan_kunjungan_pasien" pjax-content href="https://karawang.epuskesmas.id/laporankunjunganpasien">Kunjungan Pasien</a></li>
+                                                                                                                                                <li><a id="menu_laporan_kunjungan_pasien_bpjs" pjax-content href="https://karawang.epuskesmas.id/laporankunjunganpasienbpjs">Kunjungan Pasien BPJS</a></li>
+                                                                                                                                                <li><a id="menu_laporan_pelayanan_pasien" pjax-content href="https://karawang.epuskesmas.id/laporanpelayananpasien">Pelayanan Pasien</a></li>
+                                                                                                                                                <li><a id="menu_laporan_pemeriksaan_medis" pjax-content href="https://karawang.epuskesmas.id/laporanpemeriksaanmedis">Pemeriksaan Medis</a></li>
+                                                                                                                                                <li><a id="menu_laporan_laporan_pelayanan_resep" pjax-content href="https://karawang.epuskesmas.id/laporanpelayananresep">Pelayanan Resep</a></li>
+                                                                                                                                                <li><a id="menu_laporan_pengeluaran_obat" pjax-content href="https://karawang.epuskesmas.id/laporanpengeluaranobat">Pengeluaran Obat Pasien</a></li>
+                                                                                                                                                                                                <li><a id="menu_laporan_pelayanan_lab" pjax-content href="https://karawang.epuskesmas.id/laporanpelayananlab">Pelayanan Laboratorium</a></li>
+                                                                                                                                                <li><a id="menu_laporan_rujukan_internal" pjax-content href="https://karawang.epuskesmas.id/laporanrujukaninternal">Rujukan Internal</a></li>
+                                                                                                                                                <li><a id="menu_laporan_rujukan_external" pjax-content href="https://karawang.epuskesmas.id/laporanrujukanexternal">Rujukan External</a></li>
+                                                                                                                                                <li><a id="menu_laporan_laporan_tindakan_dokter" pjax-content href="https://karawang.epuskesmas.id/laporantindakandokter">
+                                                                                                            Tindakan Dokter/Perawat
+                                                                                                    </a></li>
+                                                                                                                                                <li><a id="menu_laporan_pemeriksaan_laboratorium" pjax-content href="https://karawang.epuskesmas.id/laporanpemeriksaanlaboratorium">Pemeriksaan Laboratorium</a></li>
+                                                                                                                                                <li><a id="menu_laporan_kinerja_puskesmas" pjax-content href="https://karawang.epuskesmas.id/laporankinerjapuskesmas">Kinerja Puskesmas</a></li>
+                                                                                                                                                <li><a id="menu_laporan_pelayanan_ruangan" pjax-content href="https://karawang.epuskesmas.id/laporanpelayananruangan">Pelayanan Ruangan</a></li>
+                                                                                                                                                <li><a id="menu_laporan_penyakit" pjax-content href="https://karawang.epuskesmas.id/laporanpenyakit">Penyakit</a></li>
+                                                                                                                                                <li><a id="menu_laporan_askep" pjax-content href="https://karawang.epuskesmas.id/laporanaskep">Asuhan Keperawatan</a></li>
+                                                                                                                                                <li><a id="menu_laporan_kunjungan_ptm" pjax-content href="https://karawang.epuskesmas.id/laporankunjunganptm">Kunjungan PTM</a></li>
+                                                                                                                                                <li><a id="menu_laporan_harian_pkpr" pjax-content href="https://karawang.epuskesmas.id/laporanharianpkpr">PKPR</a></li>
+                                                                                                                                                                                                                                                                                                                                                <li><a id="menu_laporan_pendapatan" pjax-content href="https://karawang.epuskesmas.id/laporanpendapatan">Laporan Pendapatan</a></li>
+                                                                                                                                                <li><a id="menu_laporan_pendapatan_pendaftaran" pjax-content href="https://karawang.epuskesmas.id/laporanpendapatanpendaftaran">Laporan Pendapatan Pendaftaran </a></li>
+                                                                                                                                                                                                <li><a id="menu_laporan_pendapatan" pjax-content href="https://karawang.epuskesmas.id/laporanpendapatankasir">Laporan Pendapatan Kasir</a></li>
+                                                                                                                                                                                                                                                <li><a id="menu_laporan_covid19" pjax-content href="https://karawang.epuskesmas.id/laporancovid19">Laporan Skrining COVID-19</a></li>
+                                                                                                                                                <li><a id="menu_laporan_pengeluaran_obat_per_pasien" pjax-content href="https://karawang.epuskesmas.id/laporanpengeluaranobatperpasien">Laporan Pengeluaran Obat</a></li>
+                                                                                                                                                <li><a id="menu_laporan_stok_opname" pjax-content href="https://karawang.epuskesmas.id/laporanstokopname">Laporan Stok Opname</a></li>
+                                                                                                                                                                                                                                                                                                    <li><a id="menu_laporan_hepatitis_c" pjax-content href="https://karawang.epuskesmas.id/laporanhepatitisc">Laporan Hepatitis C</a></li>
+                                                                                                                                                    <li><a id="menu_laporan_diare" pjax-content href="https://karawang.epuskesmas.id/laporandiare">Laporan Diare</a></li>
+                                                                                                                                                    <li><a id="menu_laporan_hepatitis_b" pjax-content href="https://karawang.epuskesmas.id/laporanhepatitisb">Laporan Hepatitis B</a></li>
+                                                                                                                                                                                                                                                    <li><a id="menu_riwayat_pembatalan_pembayaran" pjax-content href="https://karawang.epuskesmas.id/historypembayaran">Laporan Pembatalan Transaksi Kasir</a></li>
+                                                                                                                                                    <li><a id="menu_laporan_barang_persediaan" pjax-content href="https://karawang.epuskesmas.id/laporanbarangpersediaan">Laporan Barang Persediaan</a></li>
+                                                                                                                                                                                                    <li><a id="menu_laporan_register_mtbs" pjax-content href="https://karawang.epuskesmas.id/laporanmtbsv2">Laporan Register MTBS</a></li>
+                                                                                                                                                    <li><a id="menu_laporan_kunjungan_bpjs" pjax-content href="https://karawang.epuskesmas.id/laporan_kunjungan_bpjs">Laporan Kunjungan BPJS</a></li>
+                                                                                                                                            
+                                                                                            <li class="dropdown-header"><span class="label label-default">Laporan Mingguan</span></li>
+                                                                                                <li><a id="menu_laporan_pws_penyakit" pjax-content href="https://karawang.epuskesmas.id/laporanpwspenyakit">Laporan PWS Penyakit</a></li>
+                                                                                            
+                                                                                            <li class="dropdown-header"><span class="label label-default">Laporan Bulanan</span></li>
+                                                                                                <li><a id="menu_laporan_all" pjax-content href="https://karawang.epuskesmas.id/laporan">Laporan</a></li>
+                                                                                                                                                    <li><a id="menu_laopran_interpretasi_skrining" pjax-content href="https://karawang.epuskesmas.id/laporanaggregateilp" >Laporan Aggregate ILP</a></li>
+                                                                                                                                                <li><a id="menu_laporan_data_dasar" pjax-content href="https://karawang.epuskesmas.id/datadasar">Data Dasar</a></li>
+                                                                                                                                                <li><a id="menu_kirim_report" pjax-content href="https://karawang.epuskesmas.id/kirimreport">Kirim Report</a></li>
+                                                                                                                                                <li><a id="menu_laporan_pkg" pjax-content href="https://karawang.epuskesmas.id/laporanpkg">Laporan PKG</a></li>
+                                                                                                                                                                                                                                                <li><a id="menu_laporan_sp3_lb1" pjax-content href="https://karawang.epuskesmas.id/laporansp3lb1">SP3 LB1</a></li>
+                                                                                                                                                <li><a id="menu_laporan_sp3_lb2" pjax-content href="https://karawang.epuskesmas.id/laporansp3lb2/lplpo">SP3 LB2 (LPLPO)</a></li>
+                                                                                                                                                <li><a id="menu_laporan_sp3_lb3" pjax-content href="https://karawang.epuskesmas.id/laporansp3lb3">SP3 LB3</a></li>
+                                                                                                                                                <li><a id="menu_laporan_sp3_lb4" pjax-content href="https://karawang.epuskesmas.id/laporansp3lb4">SP3 LB4</a></li>
+                                                                                                                                                <li><a id="menu_laporan_sip_ukp1" pjax-content href="https://karawang.epuskesmas.id/laporansipukp1/0">UKP-1. Pelayanan Puskesmas</a></li>
+                                                                                                                                                <li><a id="menu_laporan_sip_ukp2" pjax-content href="https://karawang.epuskesmas.id/laporansipukp2">UKP-2. Kesakitan Umum</a></li>
+                                                                                                                                                <li><a id="menu_laporan_sip_ukp3" pjax-content href="https://karawang.epuskesmas.id/laporansipukp3">UKP-3. Kesakitan Gigi dan Mulut</a></li>
+                                                                                                                                                <li><a id="menu_laporan_sip_ukp4" pjax-content href="https://karawang.epuskesmas.id/laporansipukp4">UKP-4. Data Kesakitan Terbanyak</a></li>
+                                                                                                                                                <li><a id="menu_laporan_sip_ukp5" pjax-content href="https://karawang.epuskesmas.id/laporansipukp5">UKP-5. Data Kematian di Puskesmas</a></li>
+                                                                                                                                                <li><a id="menu_laporan_sip_ukp6" pjax-content href="https://karawang.epuskesmas.id/laporansipukp6">UKP-6. LPLPO</a></li>
+                                                                                                                                                <li><a id="menu_laporan_ukme1" pjax-content href="https://karawang.epuskesmas.id/laporanprogram/input/sip-ukme-promkes/0">UKME-1. Promosi Kesehatan</a></li>
+                                                <li><a id="menu_laporan_ukme2" pjax-content href="https://karawang.epuskesmas.id/laporanprogram/input/sip-ukme-kesling/0">UKME-2. Kesehatan Lingkungan</a></li>
+                                                <li><a id="menu_laporan_ukme3" pjax-content href="https://karawang.epuskesmas.id/laporanprogram/input/sip-ukme-gizi/0">UKME-3. Gizi, Kesehatan Ibu dan Kesehatan Anak</a></li>
+                                                <li><a id="menu_laporan_ukme4" pjax-content href="https://karawang.epuskesmas.id/laporanprogram/input/sip-ukme-imunisasi/0">UKME-4. Imunisasi</a></li>
+                                                <li><a id="menu_laporan_ukme5" pjax-content href="https://karawang.epuskesmas.id/laporanprogram/input/sip-ukme-menular/0">UKME-5. Pengendalian Penyakit Menular</a></li>
+                                                <li><a id="menu_laporan_ukme6" pjax-content href="https://karawang.epuskesmas.id/laporanprogram/input/sip-ukme-tidakmenular/0">UKME-6. Pengendalian Penyakit Tidak Menular</a></li>
+                                                <li><a id="menu_laporan_ukme7" pjax-content href="https://karawang.epuskesmas.id/laporanprogram/input/sip-ukme-perkesmas/0">UKME-7. Perawatan Kesehatan Masyarakat</a></li>
+                                                <li><a id="menu_laporan_potensi_klb" pjax-content href="https://karawang.epuskesmas.id/laporanprogram/input/sip-ukme-regklb/0">Penyakit Menular Potensi KLB</a></li>
+                                                <li><a id="menu_laporan_potensi_klb_des" pjax-content href="https://karawang.epuskesmas.id/laporanprogram/input/sip-ukme-pwsklb/0">Penyakit Potensi KLB Menurut Desa/Kel</a></li>
+                                                <li><a id="menu_laporan_promosi_kesmit" pjax-content href="https://karawang.epuskesmas.id/laporanprogram/input/sip-ukme-promkesmitra/0">Promosi Kesehatan Data Kemitraan</a></li>
+                                                <li><a id="menu_laporan_promosi_kesker" pjax-content href="https://karawang.epuskesmas.id/laporanprogram/input/sip-ukmp-kesehatankerja/0">UKMP. Kesehatan Kerja</a></li>
+                                                <li><a id="menu_laporan_program" pjax-content href="https://karawang.epuskesmas.id/laporanprogram">Program</a></li>
+                                                                                                                                                <li><a id="menu_laporan_pemeriksaan_ims" pjax-content href="https://karawang.epuskesmas.id/laporanpemeriksaanims">Pemeriksaan IMS</a></li>
+                                                                                                                                                <li><a id="menu_laporan_kohort" pjax-content href="https://karawang.epuskesmas.id/laporankohort">Laporan Kunjungan Ibu Hamil</a></li>
+                                                                                                                                                                                                                                                <li><a id="menu_laporan_kohort_kia" pjax-content href="https://karawang.epuskesmas.id/laporankohortkia">Kohort KIA</a></li>
+                                                                                                                                                <li><a id="menu_laporan_pkpr" pjax-content href="https://karawang.epuskesmas.id/laporanpkpr">PKPR</a></li>
+                                                                                                                                                <li><a id="menu_laporan_konseling_hiv" pjax-content href="https://karawang.epuskesmas.id/laporankonselinghiv">Konseling HIV</a></li>
+                                                                                                                                                <li><a id="menu_laporan_rekapitulasi_mtbs_mtbm" pjax-content href="https://karawang.epuskesmas.id/laporan/view/2">Rekapitulasi MTBS MTBM</a></li>
+                                                                                                                                                <li><a id="menu_laporan_laporan_ptm" pjax-content href="https://karawang.epuskesmas.id/laporanptm">PTM</a></li>
+                                                                                                                                                <li><a id="menu_kirim_laporan" pjax-content href="https://karawang.epuskesmas.id/kirimlaporan">Kirim Laporan</a></li>
+                                                                                                                                                                                                <li class="dropdown-header"><span class="label label-default">Laporan Tahunan</span></li>
+                                                                                                    <li><a id="menu_laopran_interpretasi_skrining" pjax-content href="https://karawang.epuskesmas.id/laporaninterpretasiskrining" >Laporan Interpretasi Skrining ILP</a></li>
+                                                                                                                                                                                                    <li><a id="menu_laporan_ht_dm_terkontrol" pjax-content href="https://karawang.epuskesmas.id/laporanhtdmterkontrol" >Laporan HT dan DM Terkontrol</a></li>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                <li><a id="menu_laporan_tahunan_siplt" pjax-content href="https://karawang.epuskesmas.id/laporanprogram/input/sip-lt-thnprogram/0">Laporan Tahunan</a></li>
+                                                <li><a id="menu_laporan_tahunan_lsd1" pjax-content href="https://karawang.epuskesmas.id/laporanprogram/input/sp3-lsd1/0">Laporan Tahunan LSD 1</a></li>
+                                                                                                                                                <li><a id="menu_laporan_sp3_lsd2" pjax-content href="https://karawang.epuskesmas.id/laporansp3lsd2">Laporan Tahunan LSD 2</a></li>
+                                                                                                                                                <li><a id="menu_laporan_tahunan_lsd3" pjax-content href="https://karawang.epuskesmas.id/laporanprogram/input/sp3-lsd3/0">Laporan Tahunan LSD 3</a></li>
+                                                                                                                                                                                                
+                                                                                    </ul>
+                                    </li>
+                                
+                                                            </ul>
+                                                                                       <ul class="nav navbar-nav navbar-right">
+                        <li class="">
+                            <style type="text/css">
+	.broadcastBox::-webkit-scrollbar-track
+    {
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+        background-color: #F5F5F5;
+      border-radius: 5px
+    }
+
+    .broadcastBox::-webkit-scrollbar
+    {
+        width: 10px;
+        background-color: #F5F5F5;
+      border-radius: 5px
+    }
+
+    .broadcastBox::-webkit-scrollbar-thumb
+    {
+        background-color: black;
+        border: 2px solid black;
+      border-radius: 5px
+    }
+
+    .fasBroadcast{
+      font-size: 25pt;
+      padding-bottom: 10px;
+      color: black;
+      margin-right: 40px;
+      margin-left: 40px;
+    }
+
+    .broadcastBox{
+      width: 350px;
+      height: 0px;
+      border-radius: 10px;
+      transition: 0.5s;
+      position: absolute;
+      overflow-y: scroll;
+      padding: 0px;
+      left: 0px;
+      margin-top: 5px;
+      background-color: #F4F4F4;
+      -webkit-box-shadow: 10px 10px 23px 0px rgba(0,0,0,0.2);
+      -moz-box-shadow: 10px 10px 23px 0px rgba(0,0,0,0.1);
+      box-shadow: 10px 10px 23px 0px rgba(0,0,0,0.1);
+    }
+
+    .fasBroadcast:hover {
+      color: #d63031;
+    }
+
+
+    .displayBroadcast{
+      position: relative;
+    }
+
+    .contBroadcast{
+      position: absolute;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #F4F4F4;
+    }
+
+    .contBroadcast:empty{
+      display: none;
+    }
+
+    .stickBroadcast{
+      text-align: center;  
+      display: block;
+      font-size: 50pt;
+      padding-top: 70px;
+      padding-left: 80px
+    }
+
+    .stickBroadcast:hover{
+      color: black;
+    }
+
+    .centBroadcast{
+      text-align: center;
+      display: block;
+    }
+
+    .secBroadcast{
+      padding: 25px 10px;
+      background-color: #F4F4F4;
+      transition: 0.5s;
+    }
+
+    .profContBroadcast{
+      padding-left: 15px;
+    }
+
+    .profileBroadcast{
+      -webkit-clip-path: circle(50% at 50% 50%);
+      clip-path: circle(50% at 50% 50%);
+      width: 75px;
+      float: left;
+    }
+
+    .txtBroadcast{
+      vertical-align: top;
+      font-size: 1.25rem;
+      padding: 5px 10px 0px 115px;
+    }
+
+    .subBroadcast{
+      font-size: 1rem;
+      color: grey;
+    }
+
+    .newBroadcast{
+      border-style: none none solid none;
+      border-color: red;
+    }
+
+    .secBroadcast:hover{
+      background-color: #BFBFBF;
+    }
+
+    .headerBroadcast{
+      padding: 5px;
+    }
+
+    .isiContentBroadcast{
+      padding: 10px;
+    }
+
+    .judulBroadcast{
+      padding-bottom: 10px;
+    }
+
+    .dotBroadcast {
+      height: 9px;
+      width: 9px;
+      background-color: #9D2D15;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    .containerNotifBroadcast img {
+      transition: transform 0.25s ease;
+      cursor: zoom-in;
+    }
+
+    .zoomCheckNotif:checked ~ label > img {
+      transform: scale(2);
+      cursor: zoom-out;
+    }
+</style>
+<a class="fa fa-bell" style="font-size: 20px;" onclick="if (!window.__cfRLUnblockHandlers) return false; showHideBroadcast();" data-cf-modified-04a95c20435de6f62c74625e-="">
+  </a>
+<div id="isiNotifBroadcast"></div>
+
+<script type="04a95c20435de6f62c74625e-text/javascript">
+    var openBroadcast = "true"
+    let numClicks = 0;
+    function showHideBroadcast() {
+        if (openBroadcast == "false") {
+          $('.broadcastBox').removeAttr("style");
+          openBroadcast = "true";
+          return false
+        } 
+
+        numClicks++;
+        if (numClicks === 1) {
+          singleClickTimer = setTimeout(() => {
+            numClicks = 0;
+          }, 400);
+        } else if (numClicks === 2) {
+          clearTimeout(singleClickTimer);
+          numClicks = 0;
+          return false
+        }
+
+        $.ajax({
+            url: "https://karawang.epuskesmas.id/notifikasi/getform",
+            method: 'GET',
+            dataType: "json",
+            data: {
+                _token: "e8awkOiHxoQsBJ48QSHHGhi4cg1v1gR5F9p0iSJg"
+            },
+            success: function(data) {
+                $("#isiNotifBroadcast").html(data.data)
+                setTimeout(function (){
+                      if(openBroadcast == "true") {
+                          $('.broadcastBox').css({
+                              height: "60vh"
+                          });
+                          openBroadcast = "false";
+                      }
+                }, 100);
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert("Terjadi kesalahan sistem, silahkan hubungi team support kami!", "danger");
+                console.log(xhr.status);
+                console.log(thrownError);
+            }
+        });
+
+        
+    }
+
+
+    function setPilihanBroadcast() {
+        var broadcastPilih = $('select[name="broadcastPilihan"]').val()
+
+        $.ajax({
+            url: "https://karawang.epuskesmas.id/notifikasi/getform",
+            method: 'GET',
+            dataType: "json",
+            data: {
+                pilihanBroadcast: broadcastPilih,
+                _token: "e8awkOiHxoQsBJ48QSHHGhi4cg1v1gR5F9p0iSJg"
+            },
+            success: function(data) {
+                $('#contBroadcast').html("")
+                $('#contBroadcast').html('<br/><br/><span class="loading" style="background-color:#F4F4F4!important;padding-top: 30px;padding-left: 90%;">&nbsp;</span>')
+                setTimeout(function (){
+                  $('#contBroadcast').html(data.data)
+                }, 300);
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert("Terjadi kesalahan sistem, silahkan hubungi team support kami!", "danger");
+                console.log(xhr.status);
+                console.log(thrownError);
+            }
+        }); 
+    }
+
+    function bacaSelengkapnyaBroadcast(ids) {
+      $('.broadcastBox').removeAttr("style");
+      openBroadcast = "true";
+
+      $.blockUI({
+        css: {
+            border: 'none',
+            padding: '15px',
+            backgroundColor: '#000',
+            '-webkit-border-radius': '10px',
+            '-moz-border-radius': '10px',
+            opacity: .5,
+            fontSize: '8px',
+            color: '#fff'
+            },
+            message: '<h3>Memuat....</h3>'
+        });
+
+      $.unblockUI()
+
+      $.ajax({
+          url: "https://karawang.epuskesmas.id/notifikasi/show",
+          method: 'GET',
+          dataType: "json",
+          data: {
+              ids: ids,
+              _token: "e8awkOiHxoQsBJ48QSHHGhi4cg1v1gR5F9p0iSJg"
+          },
+          success: function(data) {
+              $("#modal_notif_broadcast_notifikasi").modal({ backdrop: 'static'});
+              $("#modal_notif_broadcast_notifikasi .modal-dialog").addClass("modal-lg");
+              $('#modal_notif_broadcast_notifikasi .modal-title').html(data.tipe);
+              $('#modal_notif_broadcast_notifikasi .modal-form').html(data.data);
+              console.log(data.ressRead)
+              if (data.ressRead == false) {
+                $("#dotBroadcast").addClass('hidden')
+              }
+          },
+          error: function (xhr, ajaxOptions, thrownError) {
+              alert("Terjadi kesalahan sistem, silahkan hubungi team support kami!", "danger");
+              console.log(xhr.status);
+              console.log(thrownError);
+          }
+      });   
+    }
+
+    function skemaAction() {
+      let skema = $("#skema").val()
+      $("#skemaAction").addClass('loading')
+      var broadcastPilih = $('select[name="broadcastPilihan"]').val()
+      $.ajax({
+          url: "https://karawang.epuskesmas.id/notifikasi/getformother",
+          method: 'GET',
+          dataType: "json",
+          data: {
+              skema: skema,
+              pilihanBroadcast: broadcastPilih,
+              _token: "e8awkOiHxoQsBJ48QSHHGhi4cg1v1gR5F9p0iSJg"
+          },
+          success: function(data) {
+            setTimeout(function (){
+            $("#skemaAction").removeClass('loading')
+            let totalSkema = Number(skema) + 1
+              $("#skema").val(totalSkema)
+              $("#isiDetailNotif").append(data.data)
+
+              if(data.nextAction != "true") {
+                $("#skemaAction").addClass("hidden")
+              }
+            }, 300);
+          },
+          error: function (xhr, ajaxOptions, thrownError) {
+              $("#skemaAction").removeClass('loading')
+              alert("Terjadi kesalahan sistem, silahkan hubungi team support kami!", "danger");
+              console.log(xhr.status);
+              console.log(thrownError);
+          }
+      }); 
+    }
+</script>                        </li>
+                        <li class="">
+                                                                                                                                    <a href="javascript:showNotifBridging();" class="notification" id="button_gagal_bridging">
+                                        <span class="icon-bpjs"> Belum Bridging</span>
+                                        <span class="badge" id="kolom_gagal_bridging"></span>
+                                    </a>
+                                                                                                                        </li>
+                                                    <li class="dropdown">
+                                <a id="menu_user" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                    Puskesmas Cicinde <span class="label label-default">PUSKESMAS CICINDE</span> <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a id="menu_user_profil" href="https://karawang.epuskesmas.id/user/editbysession">Profil</a></li>
+                                                                        <li><a id="menu_user_userguide" href="https://karawang.epuskesmas.id/userguide">User Guide</a></li>
+                                                                                                                <li><a id="menu_user_update" href="#" onclick="if (!window.__cfRLUnblockHandlers) return false; showUpdateLog(true);" data-cf-modified-04a95c20435de6f62c74625e-="">Update</a></li>
+                                                                        <li><a id="menu_user_umpanbalik" href="https://karawang.epuskesmas.id/umpanbalik">Umpan Balik</a></li>
+                                                                            <li><a id="menu_user_bantuan" href="#" onclick="if (!window.__cfRLUnblockHandlers) return false; openBantuan();" data-cf-modified-04a95c20435de6f62c74625e-="">Bantuan</a></li>
+                                                                        <li role="separator" class="divider"></li>
+                                    <li>
+                                        <a id="menu_user_logout" href="https://karawang.epuskesmas.id/logout" onclick="if (!window.__cfRLUnblockHandlers) return false; event.preventDefault();
+                                                     document.getElementById('logout-form').submit();" data-cf-modified-04a95c20435de6f62c74625e-="">
+                                            Keluar
+                                        </a>
+
+                                        <form id="logout-form" action="https://karawang.epuskesmas.id/logout" method="POST" style="display: none;">
+                                            <input type="hidden" name="_token" value="e8awkOiHxoQsBJ48QSHHGhi4cg1v1gR5F9p0iSJg">
+                                        </form>
+                                    </li>
+                                </ul>
+                            </li>
+                                            </ul>
+                </div>
+            </div>
+        </nav>
+
+        
+        <!-- Bootstrap core JavaScript
+        ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script src="https://karawang.epuskesmas.id/lib/jquery/jquery-3.2.1.min.js" type="04a95c20435de6f62c74625e-text/javascript"></script>
+        
+        <script src="https://karawang.epuskesmas.id/lib/bootstrap/js/bootstrap.min.js" type="04a95c20435de6f62c74625e-text/javascript"></script>
+        <!-- Alert & Notification -->
+        <script src="https://karawang.epuskesmas.id/lib/bootstrap-notify/bootstrap-notify.min.js" type="04a95c20435de6f62c74625e-text/javascript"></script>
+        <!-- Pjax -->
+        <script src="https://karawang.epuskesmas.id/lib/pjax/jquery.pjax.min.js" type="04a95c20435de6f62c74625e-text/javascript"></script>
+        <!-- Datetime picker -->
+        <script src="https://karawang.epuskesmas.id/lib/momentjs/moment-with-locales-id.min.js" type="04a95c20435de6f62c74625e-text/javascript"></script>
+        <script src="https://karawang.epuskesmas.id/lib/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js" type="04a95c20435de6f62c74625e-text/javascript"></script>
+        <!-- ChartJS -->
+        <script src="https://karawang.epuskesmas.id/lib/chartjs/Chart.min.js" type="04a95c20435de6f62c74625e-text/javascript"></script>
+        <script src="https://karawang.epuskesmas.id/lib/jquery-blockui/jquery-blockui.min.js" type="04a95c20435de6f62c74625e-text/javascript"></script>
+        <!-- Socket IO -->
+        <script src="https://karawang.epuskesmas.id/js/socket.io.js" type="04a95c20435de6f62c74625e-text/javascript"></script>
+        <!-- Swal alert package -->
+        <script src="https://karawang.epuskesmas.id/js/swal2.js" type="04a95c20435de6f62c74625e-text/javascript"></script>
+
+                    <script src="https://karawang.epuskesmas.id/lib/js-url/url.min.js" type="04a95c20435de6f62c74625e-text/javascript"></script>
+            <script src="https://karawang.epuskesmas.id/lib/bootstrap-maxlength/bootstrap-maxlength.min.js" type="04a95c20435de6f62c74625e-text/javascript"></script>
+            <script src="https://karawang.epuskesmas.id/lib/ckeditor/ckeditor.js" type="04a95c20435de6f62c74625e-text/javascript"></script>
+            <script src="https://karawang.epuskesmas.id/lib/jquery-ui/js/jquery-ui-autocomplete.min.js" type="04a95c20435de6f62c74625e-text/javascript"></script>
+            <script src="https://karawang.epuskesmas.id/lib/taggd/dist/taggd.js" type="04a95c20435de6f62c74625e-text/javascript"></script>
+            <script src="https://karawang.epuskesmas.id/lib/jquery-masknumber/jquery.masknumber.min.js" type="04a95c20435de6f62c74625e-text/javascript"></script>
+            <script src="https://karawang.epuskesmas.id/lib/input-mask/jquery-input-mask.min.js" type="04a95c20435de6f62c74625e-text/javascript"></script>
+            <script src="https://karawang.epuskesmas.id/js/FileSaver.min.js" type="04a95c20435de6f62c74625e-text/javascript"></script>
+            <script src="https://karawang.epuskesmas.id/js/xlsx.core.min.js" type="04a95c20435de6f62c74625e-text/javascript"></script>
+            <script src="https://karawang.epuskesmas.id/js/datatable.js?v=1.2" type="04a95c20435de6f62c74625e-text/javascript"></script>
+            <script src="https://karawang.epuskesmas.id/js/jquery.form.min.js" type="04a95c20435de6f62c74625e-text/javascript"></script>
+        
+        <!-- Custom Chart Generator -->
+                    <script type="04a95c20435de6f62c74625e-text/javascript">backgroundChart = "images/gis/bg-grafik.png";</script>
+                <script src="https://karawang.epuskesmas.id/js/mychart.js" type="04a95c20435de6f62c74625e-text/javascript"></script>
+        <!-- Freeze Header -->
+        <script type="04a95c20435de6f62c74625e-text/javascript" src="https://karawang.epuskesmas.id/lib/jquery-freeze-table-master/freeze-table.min.js"></script>
+
+        <div id='loader' class="loading-lg" style="height: 32px"></div>
+        <section id='content' class="hidden container-fluid noprint">
+            <div class="panel panel-default container-fluid">
+    <div class="panel-heading row">
+        <span class="panel-title"> Data Pendaftaran </span>
+        <span class="pull-right">
+            <label style="color: red;"></label>
+            <a onclick="if (!window.__cfRLUnblockHandlers) return false; showFiturTunda();" id="button_fitur_tunda" type="button" class="btn btn-sm rwhite-outline" style="display: inline-flex;justify-content: center;gap: 6px;box-shadow: none;" data-cf-modified-04a95c20435de6f62c74625e-="">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-top: 1px;">
+                    <path d="M2.42857 6.21429H12.4286V7.64286H13.8571V3.35714C13.8571 2.57143 13.2143 1.92857 12.4286 1.92857H11.7143V0.5H10.2857V1.92857H4.57143V0.5H3.14286V1.92857H2.42857C1.63571 1.92857 1.00714 2.57143 1.00714 3.35714L1 13.3571C1 13.736 1.15051 14.0994 1.41842 14.3673C1.68633 14.6352 2.04969 14.7857 2.42857 14.7857H7.42857V13.3571H2.42857V6.21429ZM2.42857 3.35714H12.4286V4.78571H2.42857V3.35714ZM15.1714 10.7L14.6643 11.2071L13.15 9.69286L13.6571 9.18571C13.7232 9.1195 13.8017 9.06696 13.8881 9.03112C13.9745 8.99528 14.0672 8.97683 14.1607 8.97683C14.2543 8.97683 14.3469 8.99528 14.4333 9.03112C14.5197 9.06696 14.5982 9.1195 14.6643 9.18571L15.1714 9.69286C15.45 9.97143 15.45 10.4214 15.1714 10.7ZM12.6429 10.2L14.1571 11.7143L10.3714 15.5H8.85714V13.9857L12.6429 10.2Z" fill="#28A745"/>
+                    </svg>
+                Fitur Tunda</a>
+
+                            <a href="https://karawang.epuskesmas.id/laboratorium/createPendaftaranPasien/from_pendaftaran" id="button_create_laboratorium" type="button" class="btn btn-sm btn-primary">Daftar Laboratorium</a>
+                        <a pjax-content href="https://karawang.epuskesmas.id/pendaftaran/daftarrencanakontrol" id="button_daftar_rencana_kontrol" type="button" class="btn btn-sm btn-primary">Daftar Rencana Kontrol</a>
+            <a href="#" onclick="if (!window.__cfRLUnblockHandlers) return false; printAll();" id="print_pendaftaran" type="button" class="btn btn-sm btn-info rwhite-outline" style="display: inline-flex;justify-content: center;gap: 6px;box-shadow: none;" data-cf-modified-04a95c20435de6f62c74625e-="">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-top: 1px;">
+                    <g clip-path="url(#clip0_3555_9650)">
+                    <path d="M13.125 4.00313V0.5H2.875V4.00313C2.23466 4.03594 1.63134 4.31323 1.18944 4.77781C0.747536 5.24239 0.50076 5.85882 0.5 6.5V12.5H2.625V11.5H1.5V6.5C1.50045 6.10231 1.65863 5.72104 1.93983 5.43983C2.22104 5.15863 2.60231 5.00045 3 5H13C13.3977 5.00045 13.779 5.15863 14.0602 5.43983C14.3414 5.72104 14.4996 6.10231 14.5 6.5V11.5H13.125V12.5H15.5V6.5C15.4992 5.85882 15.2525 5.24239 14.8106 4.77781C14.3687 4.31323 13.7653 4.03594 13.125 4.00313V4.00313ZM12.125 4H3.875V1.5H12.125V4Z" fill="#28A745"/>
+                    <path d="M12.375 6.25H13.375V7.25H12.375V6.25ZM3.625 8.25H2.375V9.25H3.625V15.5H12.125V9.25H13.375V8.25H3.625ZM11.125 14.5H4.625V9.25H11.125V14.5Z" fill="#28A745"/>
+                    </g>
+                    <defs>
+                    <clipPath id="clip0_3555_9650">
+                    <rect width="16" height="16" fill="white"/>
+                    </clipPath>
+                    </defs>
+                </svg>
+                Print
+            </a>
+            <a href="#" onclick="if (!window.__cfRLUnblockHandlers) return false; exportExcelSelf();" id="export_pendaftaran" type="button" class="btn btn-sm btn-info rwhite-outline" style="display: inline-flex;justify-content: center;gap: 6px;box-shadow: none;" data-cf-modified-04a95c20435de6f62c74625e-="">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-top: 1px;">
+                    <path d="M2 0.666748H10.276L14 4.39075V8.00008H12.6667V6.00008H8.66667V2.00008H3.33333V14.0001H7.33333V15.3334H2V0.666748ZM10 2.27608V4.66675H12.3907L10 2.27608ZM12.7 9.39208L15.9387 12.6681L12.7 15.9441L11.752 15.0067L13.4053 13.3347H8.66533V12.0014H13.4053L11.752 10.3294L12.7 9.39208Z" fill="#28A745"/>
+                </svg>
+                Export Excel
+            </a>
+        </span>
+    </div>
+    <div class="panel-body row">
+        <div id="datatableWrapper">
+            <div class="row">
+                <div class="col-md-12 text-right">
+                    <form id="form_search" class="form-inline text-left">
+                                                <div class="row">
+                            <div class="col-xs-6 col-md-2">
+                                <div class="input-group date-free" style="width: 100%;margin-bottom: 12px;">
+                                    <input type="text" class="form-control input-sm" name="tanggal" value="03-11-2025" placeholder="Tanggal Daftar">
+                                    <span class="input-group-addon btn-info"><i class="fa fa-calendar"></i></span>
+                                </div>
+                            </div>
+                            <div class="col-xs-6 col-md-2">
+                                <div class="input-group" style="width: 100%;margin-bottom: 12px;">
+                                    <select class="form-control input-sm" name="asuransi_id" id="asuransi_id">
+                                        <option value=""> - Asuransi - </option>
+                                                                                                                        <option value="0000">Umum</option>
+                                                                                <option value="0001">BPJS Kesehatan</option>
+                                                                                <option value="0002">Pemerintah Daerah Kota</option>
+                                                                                <option value="0008">Pemeriksaan Kesehatan Gratis-Hari Ulang Tahun (PKG-HUT)</option>
+                                                                                                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-xs-6 col-md-2">
+                                <div class="input-group" style="width: 100%;margin-bottom: 12px;">
+                                    <select class="form-control input-sm" name="ruangan_id">
+                                                                                    <option value="0"> - Semua Ruangan - </option>
+                                                                                            <option value="0001">KLASTER 3 DEWASA DAN LANSIA</option>
+                                                                                            <option value="0004">LINTAS KLASTER KONSELING</option>
+                                                                                            <option value="0008">LINTAS KLASTER GIGI DAN MULUT</option>
+                                                                                            <option value="0009">KLASTER 2 ANAK DAN IBU HAMIL</option>
+                                                                                            <option value="0010">EDUKASI PROLANIS</option>
+                                                                                            <option value="0011">SENAM PROLANIS</option>
+                                                                                            <option value="0012">KLASTER 2 IBU DAN ANAK</option>
+                                                                                            <option value="0013">KLASTER 3</option>
+                                                                                            <option value="0014">KLASTER 4</option>
+                                                                                            <option value="0015">KLASTER 5 IGD</option>
+                                                                                            <option value="0017">LINTAS KLASTER KESEHATAN GIGI &amp;</option>
+                                                                                            <option value="0019">POLI CKG</option>
+                                                                                            <option value="0020">POLI ASTER</option>
+                                                                                            <option value="0002">LINTAS KLASTER GAWAT DARURAT</option>
+                                                                                            <option value="0003">INAP UMUM</option>
+                                                                                            <option value="0016">LINTASKLAS PONED</option>
+                                                                                            <option value="0006">GUDANG FARMASI</option>
+                                                                                            <option value="0007">APOTEK</option>
+                                                                                        <option value="kosong">Kosong</option>
+                                                                            </select>
+                                </div>
+                            </div>
+                                                            <div class="col-xs-6 col-md-2">
+                                    <div class="input-group" style="width: 100%; margin-bottom: 12px">
+                                        <select class="form-control input-sm" name="dokter_id">
+                                            <option value="0"> - Semua Dokter - </option>
+                                        </select>
+                                    </div>
+                                </div>
+                                                        <div class="col-xs-6 col-md-2">
+                                <div class="input-group" style="width: 100%;margin-bottom: 12px;">
+                                    <select class="form-control input-sm" name="status_periksa" id="status_periksa">
+                                        <option value="0"> - Semua Pemeriksaan - </option>
+                                        <option value="1"> Belum Diperiksa </option>
+                                        <option value="2"> Sedang Diperiksa </option>
+                                        <option value="3"> Sudah Diperiksa </option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-xs-6 col-md-2">
+                                <div class="input-group" style="width: 100%;margin-bottom: 12px;">
+                                    <select class="form-control input-sm" name="is_bayar" id="is_bayar">
+                                        <option value=""> - Status Pembayaran - </option>
+                                        <option value="0"> Belum Bayar </option>
+                                        <option value="1"> Sudah Bayar </option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-xs-6 col-md-2">
+                                <div class="input-group" style="width: 100%;margin-bottom: 12px;">
+                                    <select class="form-control input-sm" name="daftar_dari" id="daftar_dari">
+                                        <option value=""> - Asal Pendaftaran - </option>
+                                                                                                                        <option value="0">e-Puskesmas</option>
+                                                                                <option value="1">Mobile</option>
+                                                                                <option value="2">e-Antrian</option>
+                                                                                <option value="3">SMS</option>
+                                                                                <option value="4">O2O</option>
+                                                                                <option value="6">mobile JKN</option>
+                                                                                <option value="10">Klinisia</option>
+                                                                                <option value="11">Whatsapp</option>
+                                                                                                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-xs-6 col-md-2">
+                                <div class="input-group" style="width: 100%;margin-bottom: 12px;">
+                                    <select class="form-control input-sm" name="status_pulang" id="status_pulang">
+                                        <option value="0"> - Semua Pelayanan - </option>
+                                        <option value="daftar"> Pendaftaran </option>
+                                                                                                                        <option value="01">Berobat Jalan</option>
+                                                                                <option value="02">Sembuh</option>
+                                                                                <option value="03">Pulang Paksa</option>
+                                                                                <option value="04">Rujuk Internal</option>
+                                                                                <option value="05">Rujuk Lanjut</option>
+                                                                                <option value="06">Meninggal</option>
+                                                                                <option value="07">Batal Berobat</option>
+                                                                                                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-xs-6 col-md-2">
+                                <div class="input-group" style="width: 100%;margin-bottom: 12px;">
+                                    <select class="form-control input-sm" name="skrining_visual" id="skrining_visual">
+                                        <option value=""> - Semua Skrining Visual -  </option>
+                                        <option value="belum_skrining">Belum Skrining</option>
+                                        <option value="merah">Merah</option>
+                                        <option value="oranye">Oranye</option>
+                                        <option value="kuning">Kuning</option>
+                                        <option value="hijau">Hijau</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-xs-6 col-md-2">
+                                <div class="input-group" style="width: 100%;margin-bottom: 12px;">
+                                    <select class="form-control input-sm" name="f_klaster" id="f_klaster" onchange="if (!window.__cfRLUnblockHandlers) return false; checkSubDropdownSiklusHidup()" data-cf-modified-04a95c20435de6f62c74625e-="">
+                                        <option value=""> - Semua Klaster -  </option>
+                                        <option value="Klaster 2">Klaster 2 (Ibu dan Anak)</option>
+                                        <option value="Klaster 3">Klaster 3 (Usia Dewasa dan Lansia)</option>
+                                        <option value="Klaster 4">Klaster 4 (Penanggulangan Penyakit Menular)</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-xs-6 col-md-2">
+                                <div class="input-group" style="width: 100%;margin-bottom: 12px;">
+                                    <select class="form-control input-sm" name="siklus_hidup" id="siklus_hidup">
+
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="search-row">
+                            <div class="ig-control">
+                                <input type="text" class="form-control input-sm" autofocus name="searchKey" placeholder="Pencarian">
+                                <button type="submit" id="button_cari" class="btn btn-sm">Cari</button>
+                            </div>
+                            <div class="sr-action">
+                                <button type="reset" class="btn btn-sm" style="
+                                    margin-bottom: 0;
+                                    min-width: inherit;
+                                    padding-left: 12px;
+                                    padding-right: 12px;
+                                    box-shadow: none;
+                                    background-color: white !important;
+                                    border: 1px solid #ccc;
+                                    color: #28A745;
+                                    font-weight: 500;
+                                    margin-bottom: 12px;
+                                ">Reset</button>
+                            </div>
+                        </div>
+                                            </form>
+                </div>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover table-condensed">
+                    <thead>
+                        <tr class="btn-primary">
+                            <th>No.</th>
+                            <th>ID</th>
+                            <th>Tanggal Pendaftaran</th>
+                            <th style="width:5%">No. Pendaftaran</th>
+                            <th style="width:20%">Data Pasien</th>
+                            <th>Penyakit Khusus</th>
+                            <th>Ruangan Daftar</th>
+                            <th>Dokter</th>
+                            <th style="width:10%">Asuransi</th>
+                            <th style="width:10%">Status Pembayaran</th>
+                                                            <th>Status BPJS</th>
+                                                        <th>Kunjungan</th>
+                            <th>Status Pelayanan</th>
+                            <th>Cetak</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="20">
+                                Keterangan :<br><br>
+                                <div class="col-sm-4">
+                                    <button class="btn btn-default"></button> Belum Diperiksa<br>
+                                </div>
+                                <div class="col-sm-4">
+                                    <button class="btn btn-danger-label"></button> Sedang Diperiksa<br>
+                                </div>
+                                <div class="col-sm-4">
+                                    <button class="btn btn-success-label"></button> Sudah Diperiksa<br>
+                                </div>
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modalGeneralConsent" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="modalLabel">Yang Bertanda Tangan</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal" id="formGeneralConsent">
+                    <input type="hidden" name="generalConsentId" id="generalConsentId">
+                    <input type="hidden" name="registrationId" id="registrationId">
+                    <input type="hidden" name="patientName" id="patientName">
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">Bertindak Atas <span style="color:red;">*</span></label>
+                        <div class="col-sm-8">
+                            <label class="radio-inline">
+                                <input type="radio" name="acting_as" value="pasien" onchange="if (!window.__cfRLUnblockHandlers) return false; changeActingAs(this);" data-cf-modified-04a95c20435de6f62c74625e-="">Pasien
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="acting_as" value="penanggung_jawab" onchange="if (!window.__cfRLUnblockHandlers) return false; changeActingAs(this);" data-cf-modified-04a95c20435de6f62c74625e-="">Penanggung Jawab
+                            </label>
+                        </div>
+                    </div>
+                    <div id="responsible" class="hide">
+                        <div class="form-group">
+                            <label class="col-sm-4 control-label">Penanggung Jawab Bagi <span style="color:red;">*</span></label>
+                            <div class="col-sm-8">
+                                <select class="form-control input-sm" name="responsible" id="responsible">
+                                    <option value=""> - Pilih - </option>
+                                                                            <option value="ANAK"> ANAK </option>
+                                                                            <option value="CUCU"> CUCU </option>
+                                                                            <option value="ISTRI"> ISTRI </option>
+                                                                            <option value="KEPALA KELUARGA"> KEPALA KELUARGA </option>
+                                                                            <option value="LAINNYA"> LAINNYA </option>
+                                                                            <option value="MENANTU"> MENANTU </option>
+                                                                            <option value="MERTUA"> MERTUA </option>
+                                                                            <option value="ORANG TUA"> ORANG TUA </option>
+                                                                            <option value="PEMBANTU"> PEMBANTU </option>
+                                                                            <option value="SAUDARA KANDUNG"> SAUDARA KANDUNG </option>
+                                                                            <option value="SUAMI"> SUAMI </option>
+                                                                            <option value="WALI"> WALI </option>
+                                                                    </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-4 control-label"><strong>Data Penanggung Jawab</strong></label>
+                            <div class="col-sm-8">
+                                &nbsp;
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">Nama Lengkap <span style="color:red;">*</span></label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="full_name" id="full_name" placeholder="Nama" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">NIK (Nomor Induk Kependudukan) <span style="color:red;">*</span></label>
+                        <div class="col-sm-8">
+                            <input type="number" class="form-control" name="nik" id="nik" placeholder="NIK" maxlength="16" required onkeyup="if (!window.__cfRLUnblockHandlers) return false; this.value=this.value.replace(/[^\d]/,'')" data-cf-modified-04a95c20435de6f62c74625e-="">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">Tanggal Lahir / Umur <span style="color:red;">*</span></label>
+                        <div class="col-sm-4">
+                            <div class="input-group datePickerBirthdate">
+                                <input type="text" class="form-control input-sm" name="birthdate" id="birthdate" placeholder="dd/mm/yyyy" required>
+                                <span class="input-group-addon btn-info"><i class="fa fa-calendar"></i></span>
+                            </div>
+                        </div>
+                        <div class="col-sm-1">
+                            -
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="input-group">
+                                <input type="text" class="form-control input-sm" name="age" id="age" placeholder="-" readonly>
+                                <span class="input-group-addon btn-info">Tahun</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">Jenis Kelamin <span style="color:red;">*</span></label>
+                        <div class="col-sm-8">
+                            <label class="radio-inline" id="radioGenderL">
+                                <input type="radio" name="gender" value="L">Laki-Laki
+                            </label>
+                            <label class="radio-inline" id="radioGenderP">
+                                <input type="radio" name="gender" value="P">Perempuan
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">Alamat <span style="color:red;">*</span></label>
+                        <div class="col-sm-8">
+                            <textarea name="address" class="form-control input-sm" cols="1" rows="2" id="address" required></textarea>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer hide" id="modalFooterEditable">
+                <button type="button" class="btn btn-danger bordered pull-left" onclick="if (!window.__cfRLUnblockHandlers) return false; modalDeleteGeneralConsent(this)" data-cf-modified-04a95c20435de6f62c74625e-="">
+                    <i class="fa fa-trash" aria-hidden="true"></i> Hapus</button>
+                <button type="button" class="btn btn-primary" onclick="if (!window.__cfRLUnblockHandlers) return false; printGeneralConsent(this)" data-cf-modified-04a95c20435de6f62c74625e-="">Cetak</button>
+                <button type="button" class="btn btn-primary" onclick="if (!window.__cfRLUnblockHandlers) return false; showDetailgeneralConsent(this)" data-cf-modified-04a95c20435de6f62c74625e-="">Lihat Detail</button>
+            </div>
+            <div class="modal-footer" id="modalFooterCreate">
+                <button type="button" class="btn btn-danger bordered hide" onclick="if (!window.__cfRLUnblockHandlers) return false; deleteDataPatient(this)" id="deleteDataPatient" data-cf-modified-04a95c20435de6f62c74625e-="">
+                    <i class="fa fa-trash" aria-hidden="true"></i> Hapus</button>
+                <button type="button" class="btn btn-success" onclick="if (!window.__cfRLUnblockHandlers) return false; saveAndNext(this)" id="modalSaveAndNext" data-cf-modified-04a95c20435de6f62c74625e-="">Simpan & Lanjutkan</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="delete-general_consent-modal" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" id="stopmodal">&times;</button>
+                <h4 class="modal-title">Hapus General Consent</h4>
+            </div>
+            
+            <div id="data-content" class="modal-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="text-center">
+                            <span class="text-warning delete-icon-lock"><i class="fa fa-unlock-alt"></i></span><br>
+                            <span>ID: <strong id="deleteRegistrationId"></strong></span><br>
+                            <span>Nama Pasien: <strong id="deletePatient"></strong></span><br>
+                            <span>Penanggung Jawab: <strong id="deleteResponsible"></strong></span>
+                        </div>
+                        <form class="form-vertical form-delete">
+                            <div class="form-group">
+                                <label for="input-password-otorisasi" class="control-label">Password Otorisasi<span class="text-danger">*</span></label>
+                                <input type="password" class="form-control" id="password_otorisasi" name="password_otorisasi" placeholder="Password Otorisasi" required>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+             <div class="modal-footer">
+                 <div class="col-md-12">
+                     <div class="col-md-6">
+                        <button class="btn btn-danger btn-lg btn-block" onclick="if (!window.__cfRLUnblockHandlers) return false; deleteGeneralConsent(this)" data-cf-modified-04a95c20435de6f62c74625e-="">Hapus</button>
+                     </div>
+                     <div class="col-md-6">
+                        <button class="btn btn-success btn-lg btn-block" onclick="if (!window.__cfRLUnblockHandlers) return false; modalDeleteGeneralConsent('cancel')" id="close-modal" data-cf-modified-04a95c20435de6f62c74625e-="">Batal</button>
+                     </div>
+                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+        </section>
+        <span id="top-link-block" class="hidden">
+            <a href="#top" onclick="if (!window.__cfRLUnblockHandlers) return false; $('html,body').animate({scrollTop:0},'slow');return false;" data-toggle="tooltip" title="Kembali Ke Atas!" data-cf-modified-04a95c20435de6f62c74625e-="">
+                <i id="icon_back" class="affix btn-lg btn-circle btn-info glyphicon glyphicon-chevron-up"></i>
+            </a>
+        </span>
+                <!-- Posisi belum baik >> <footer class="footer"><br>
+    <div class="container-fluid">
+        <p>
+            Infokes Indonesia © 2025 - <b>ePuskesmas</b> <sup>2.0</sup>
+        </p>
+    </div>
+</footer>
+ -->
+        <!-- primary modal -->
+        <div id="modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="modal">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h5 class="modal-title">Memuat... <!-- content replaced by AJAX --></h5>
+                    </div>
+                    <div class="modal-form">
+                        <!-- content replaced by AJAX -->
+                        <div class="modal-body loading-lg"></div>
+                        <div class="modal-footer"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="modal_notif" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="modal">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button id='btn_close_suspend' type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h5 class="modal-title">Memuat... <!-- content replaced by AJAX --></h5>
+                    </div>
+                    <div class="modal-form">
+                        <!-- content replaced by AJAX -->
+                        <br><br>
+                        <div class="modal-body loading-lg"></div>
+                        <div class="modal-footer"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="modal_notif_bridging" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="modal">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header btn-warning">
+                        <button id='btn_close_bridging' type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h5 class="modal-title">Memuat... <!-- content replaced by AJAX --></h5>
+                    </div>
+                    <div class="modal-form">
+                        <!-- content replaced by AJAX -->
+                        <div class="modal-body loading-lg"></div>
+                        <div class="modal-footer"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="modal_notif_broadcast_notifikasi" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="modal">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content" style="border-radius: 25px!important">
+                    <div class="modal-header btn-warning" style="border-radius: 25px 25px 0px 0px">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h5><i class="fa fa-info" style="font-size: 28px;color: black">&nbsp;</i> <span class="modal-title" style="font-size: 18px;color: black">Notifikasi</span></h5>
+                    </div>
+                    <div class="modal-form">
+                        <div class="modal-body loading-lg"></div>
+                        <div class="modal-footer"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div id="modal_loading" class="modal custom-popup" tabindex="-1" role="dialog" aria-labelledby="modal" data-backdrop="static" style="display: none;">
+            <div class="modal-dialog mdl-556" role="document" style="min-height: 100%;display:flex;align-items: center;justify-content: center;">
+                <div class="modal-content">
+                    <div class="modal-form">
+                        <!-- content replaced by AJAX -->
+                        <div class="modal-body modal-form text-center">
+                            <img src="https://karawang.epuskesmas.id/images/spinner.svg" alt="">
+                            <div class="body-text"></div> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+                                                <style type="text/css">
+	#modalBantuan {
+        position: fixed;
+        z-index: 99998; 
+        height: 52px; 
+        width: 52px;
+        background-color: #25d366;
+        text-align: center;
+        bottom: 5%;
+        left: 2%;
+        border-radius: 50%;
+        font-size: 40px;
+    }
+
+    #modalBantuan > i {
+        color: white;
+        padding-top: 5px;
+    }
+
+</style>
+
+<div id="modalBantuan" data-toggle="tooltip" title="Bantuan"><i class="fa fa-whatsapp"></i></div>
+
+<script type="04a95c20435de6f62c74625e-text/javascript">
+    function openBantuan(){
+        Swal.fire({
+            title: 'Apakah anda membutuhkan bantuan dari Team Customer Support?',
+            type: 'info',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Ya',
+            cancelButtonText: 'Tidak'
+        }).then((result) => {
+            if (result.value) {
+                let notif_wa = "https://api.whatsapp.com/send/?phone=6281234422237&text=Hi,%20Saya%20pengguna%20ePuskesmas:%20,%20%20(pkm-cicinde)%20-%20P3215071201%20CICINDE%20-%20KABUPATEN%20KARAWANG%20memerlukan%20bantuan%20anda!&app_absent=0"
+                window.open(notif_wa);
+            }
+        });
+    }
+
+    $("#modalBantuan").mousedown(function() {
+        isDragging = false;
+    }).mousemove(function() {
+        isDragging = true;
+    }).mouseup(function() {
+        var wasDragging = isDragging;
+        isDragging = false;
+        if (!wasDragging) {
+            openBantuan();
+        }
+    });
+
+    dragElement(document.getElementById("modalBantuan"));
+
+    function dragElement(elmnt) {
+      var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+      if (document.getElementById(elmnt.id + "header")) {
+        document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
+      } else {
+        elmnt.onmousedown = dragMouseDown;
+      }
+
+      function dragMouseDown(e) {
+        e = e || window.event;
+        e.preventDefault();
+        pos3 = e.clientX;
+        pos4 = e.clientY;
+        document.onmouseup = closeDragElement;
+        document.onmousemove = elementDrag;
+      }
+
+      function elementDrag(e) {
+        e = e || window.event;
+        e.preventDefault();
+        pos1 = pos3 - e.clientX;
+        pos2 = pos4 - e.clientY;
+        pos3 = e.clientX;
+        pos4 = e.clientY;
+        elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+        elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+      }
+
+      function closeDragElement() {
+        document.onmouseup = null;
+        document.onmousemove = null;
+      }
+    }
+
+    var modalBantuanDrag = document.getElementById('modalBantuan');
+    modalBantuanDrag.addEventListener('touchmove', function(event) {
+      event.preventDefault();
+      if (event.targetTouches.length == 1) {
+        var touch = event.targetTouches[0];
+        modalBantuanDrag.style.left = touch.pageX + 'px';
+        modalBantuanDrag.style.top = touch.pageY + 'px';
+      }
+    }, {passive: true});
+</script>        
+                <script type="04a95c20435de6f62c74625e-text/javascript">
+                        $(document).ready(function(){
+
+                $('li.dropdown-submenu a[data-toggle="dropdown"]').on('click', function(event) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                    $('li.dropdown-submenu').not($(this).parent()).removeClass('open');
+                    $(this).parent().toggleClass('open');
+                });
+
+                $(window).scroll(function () {
+                    $('#icon_back').attr('style','margin-top:'+(parseInt(innerHeight)-150)+'px;margin-left:'+(parseInt(innerWidth)-70)+'px;z-index:1000;');
+                    if ($(this).scrollTop() > 125) {
+                        $('#top-link-block').removeClass('hidden');
+                        $('#top-link-block').fadeIn();
+                    }else{
+                        $('#top-link-block').fadeOut();
+                    }
+                });
+
+                let message_skrining= 'null';
+                if(message_skrining == "error_message"){
+
+                    let text_message = 'null';
+                    let text_status = 'null';
+                    if(text_status == 'null'){
+                        text_status = 'error';
+                    }
+                    if(text_message != 'null'){
+                        Swal.fire(
+                          text_message,
+                          '',
+                          text_status
+                        )
+                    }
+                }
+
+                $('[data-toggle="tooltip"]').tooltip();
+                $(function () {
+                    $('[data-toggle="popover"]').popover()
+                })
+
+                                                                                        let stt= localStorage.getItem("count_notif");
+                            if(stt !== "undefined" && stt !== "0" && stt !== "null" ){
+                                $("#kolom_gagal_bridging").html(stt);
+                            }
+                                                                            
+                isKioskFeatureEnabled()
+            });
+
+            
+            function isKioskFeatureEnabled() {
+                const configs = {
+                    pendaftaran: "1",
+                    panggilan: "1",
+                    monitor: "1"
+                };
+
+                if (!configs.pendaftaran) {
+                    $('#kiosk_pendaftaran_feature').remove();
+                }
+
+                if (!configs.panggilan) {
+                    const panggilanElements = [
+                        '#kiosk_panggilan_feature',
+                        '#kiosk_speaker_head_feature',
+                        '#kiosk_speaker_feature'
+                    ];
+                    
+                    panggilanElements.forEach(element => $(element).remove());
+                }
+                
+                if (!configs.monitor) {
+                    $('#kiosk_monitor_feature').remove();
+                }
+            }
+
+            
+            function changeMenu(obj) {
+                $.ajax({
+                    url: "https://karawang.epuskesmas.id/home/changesessionmenu",
+                    method: "POST",
+                    dataType: "json",
+                    data: {
+                        session: obj,
+                        _token: "e8awkOiHxoQsBJ48QSHHGhi4cg1v1gR5F9p0iSJg"
+                    },
+                    success: function(data) {
+                        location.reload();
+                    },
+                    error: function (xhr, ajaxOptions, thrownError) {
+                        console.log(xhr.status);
+                        console.log(thrownError);
+                    }
+                });
+            }
+
+            function applyNewMenu() {
+                Swal.fire({
+                    title: 'Menerapkan Tampilan Menu Baru',
+                    text: "Apakah anda yakin ingin beralih ke tampilan menu yang baru ?",
+                    type: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Ya, Terapkan ...',
+                    cancelButtonText: 'Tidak'
+                }).then((result) => {
+                    if (result.value) {
+                        $.ajax({
+                            url: "https://karawang.epuskesmas.id/home/changesessionmenu",
+                            method: "POST",
+                            dataType: "json",
+                            data: {
+                            _token: "e8awkOiHxoQsBJ48QSHHGhi4cg1v1gR5F9p0iSJg"
+                            },
+                            success: function(data) {
+                                var message = data.message;
+                                if (data.code == '200') {
+                                    Swal.fire(
+                                        'Berhasil !',
+                                        `${message}`,
+                                        'success'
+                                    )
+                                    setTimeout(function(){
+                                        location.reload();
+                                    },3000);
+                                } else {
+                                    Swal.fire(
+                                        'Gagal beralih ke menu baru !',
+                                        `${message}`,
+                                        'error'
+                                    )
+                                }
+                            }
+                        });
+                    }
+                })
+            }
+
+            function totalHargaDistribusiObat() {
+                var sumBeli = 0;
+                var sumJual = 0;
+
+                $('td[class*="jumlah_harga_beli"]').each(function() {
+                    sumBeli += Number(currencyToNominal($(this).text()));
+                });
+
+                $('#sumTotalHargaBeli').css("font-weight","Bold");
+                $('#sumTotalHargaBeli').text(labelCurrencyDigit(sumBeli));
+
+                $('td[class*="jumlah_harga_jual"]').each(function() {
+                    sumJual += Number(currencyToNominal($(this).text()));
+                });
+
+                $('#sumTotalHargaJual').css("font-weight","Bold");
+                $('#sumTotalHargaJual').text(labelCurrencyDigit(sumJual));
+            }
+
+            function aksipesan(){
+                Swal.fire({
+                    text: "Apakah Anda ingin tutup pesan Webservice bpjs dan tidak di tampilkan lagi ?",
+                    type: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Ya',
+                    cancelButtonText: 'Tutup Sekarang Saja'
+                }).then((result) => {
+                    if(result.value){
+                        setSessionWebSocket(1, "indikatorbpjs");
+                        $('#notif-connection-bpjs').hide();
+                    }
+
+                    if (result.dismiss == "cancel") {
+                        $('#notif-connection-bpjs').hide();
+                    }
+                });
+            }
+
+                        function callAntreanKiosk(nomorAntrean, ruangan_code){
+                                return false;
+            }
+            
+            function deletePasienKiosk(pasien_id){
+                                return false;
+            }
+
+            function deletePendaftaranKiosk(pendaftaran_id){
+                                return false;
+            }
+
+            function syncPasienKiosk(){
+                                return false;
+            }
+
+            function syncPendaftaranKiosk(){
+                                return false;
+            }
+        </script>
+        <script type="04a95c20435de6f62c74625e-text/javascript">
+            var date = new Date();
+            var tanggal = new Date(date.getFullYear(), date.getMonth(), date.getDate(), 23, 59, 59, 59);
+            var bulan = new Date(date.getFullYear(), date.getMonth(), 1, 0, 0, 0);
+            var tahun = new Date(date.getFullYear(), 1, 0, 0, 0);
+                            var tanggal_min = new Date(date.getFullYear(), date.getMonth(), date.getDate(), 00, 00, 00, 00);
+                        var sistole_diastole_anamnesa = "";
+            var default_sistole = "";
+            var default_diastole = "";
+        </script>
+        <!-- Custom JS -->
+        <script src="https://karawang.epuskesmas.id/js/scrollspy.min.js" type="04a95c20435de6f62c74625e-text/javascript"></script>
+        <script src="https://karawang.epuskesmas.id/js/custom.min.js?v=2.1" type="04a95c20435de6f62c74625e-text/javascript"></script>
+        
+                    <script src="https://karawang.epuskesmas.id/js/pagination.min.js?v=1.1" type="04a95c20435de6f62c74625e-text/javascript"></script>
+        
+                
+        <script type="04a95c20435de6f62c74625e-text/javascript">
+            function showUpdateLog(from_menu = false)
+            {
+                $.ajax({
+                    url: "https://karawang.epuskesmas.id/updatelog/showupdatelog",
+                    method: 'GET',
+                    dataType: "json",
+                    data: {
+                        _token: "e8awkOiHxoQsBJ48QSHHGhi4cg1v1gR5F9p0iSJg"
+                    },
+                    success: function(data) {
+                        if(data.title != '' && data.title != undefined){
+                            $('#modal .modal-title').html(data.title);
+                            $('#modal .modal-form').html(data.form);
+                            openmodal("modal-lg");
+                        }else{
+                            if(from_menu){
+                                alert("Belum ada update terbaru saat ini!","info");
+                            }
+                        }
+                    },
+                    error: function (xhr, ajaxOptions, thrownError) {
+                        alert("Terjadi kesalahan sistem, silahkan hubungi team support kami!", "danger");
+                        console.log(xhr.status);
+                        console.log(thrownError);
+                    }
+                });
+            }
+
+            function showNotif(from_menu = false)
+            {
+                $.ajax({
+                    url: "https://karawang.epuskesmas.id/mpuskesmas/shownotif",
+                    method: 'GET',
+                    dataType: "json",
+                    data: {
+                        _token: "e8awkOiHxoQsBJ48QSHHGhi4cg1v1gR5F9p0iSJg"
+                    },
+                    success: function(data) {
+                        if(data.title != '' && data.title != undefined){
+                            $('#modal_notif .modal-title').html(data.title);
+                            $('#modal_notif .modal-form').html(data.form);
+                            openmodal_notif("modal-lg");
+
+                            if (data.notif=='NOTIF_02') {
+                                $('#btn_close_suspend').hide();
+                            }
+
+                        }else{
+                            if(from_menu){
+                                alert("Belum ada update terbaru saat ini!","info");
+                            }
+                        }
+                    },
+                    error: function (xhr, ajaxOptions, thrownError) {
+                        alert("Terjadi kesalahan sistem, silahkan hubungi team support kami!", "danger");
+                        console.log(xhr.status);
+                        console.log(thrownError);
+                    }
+                });
+            }
+
+            function showNotifBridging(from_menu = false)
+            {
+                $.blockUI({
+                css: {
+                    border: 'none',
+                    padding: '15px',
+                    backgroundColor: '#000',
+                    '-webkit-border-radius': '10px',
+                    '-moz-border-radius': '10px',
+                    opacity: .5,
+                    fontSize: '8px',
+                    color: '#fff'
+                    },
+                    message: '<h3>Memuat....</h3>'
+                });
+
+                $.ajax({
+                    url: "https://karawang.epuskesmas.id/home/shownotifbridging",
+                    method: 'GET',
+                    dataType: "json",
+                    data: {
+                        _token: "e8awkOiHxoQsBJ48QSHHGhi4cg1v1gR5F9p0iSJg"
+                    },
+                    success: function(data) {
+                        $('#modal_notif_bridging .modal-title').html(data.title);
+                        $('#modal_notif_bridging .modal-form').html(data.form);
+                        openmodal_notif_bridging("modal-lg");
+                    },
+                    error: function (xhr, ajaxOptions, thrownError) {
+                        alert("Terjadi kesalahan sistem, silahkan hubungi team support kami!", "danger");
+                        console.log(xhr.status);
+                        console.log(thrownError);
+                    }
+                });
+            }
+
+            function gagalBridgingCount(from_menu = false)
+            {
+                $.ajax({
+                    url: "https://karawang.epuskesmas.id/home/gagalbridgingcount",
+                    method: 'GET',
+                    dataType: "json",
+                    data: {
+                        _token: "e8awkOiHxoQsBJ48QSHHGhi4cg1v1gR5F9p0iSJg"
+                    },
+                    success: function(data) {
+                        var x = document.getElementById("button_gagal_bridging");
+                        if(data > 0){
+                            $("#kolom_gagal_bridging").html(data);
+                            localStorage.setItem('count_notif',data);
+                        }else{
+                            localStorage.setItem('count_notif',"0");
+                        }
+                    },
+                    error: function (xhr, ajaxOptions, thrownError) {
+                        alert("Terjadi kesalahan sistem, silahkan hubungi team support kami!", "danger");
+                        console.log(xhr.status);
+                        console.log(thrownError);
+                    }
+                });
+            }
+
+        function showRiwayatPelayanan(obj)
+        {
+            data = $(obj).data();
+            $.ajax({
+                url: "https://karawang.epuskesmas.id/pelayanan/showriwayatpelayanan",
+                method: "GET",
+                dataType: "json",
+                data: {
+                id: data.id,
+                puskesmas: data.puskesmas,
+                _token: "e8awkOiHxoQsBJ48QSHHGhi4cg1v1gR5F9p0iSJg",
+            },
+            success: function(data) {
+                $("#modal .modal-title").html(data.title);
+                $("#modal .modal-form").html(data.form);
+                openmodal("modal-lg");
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                    alert("Terjadi kesalahan sistem, silahkan hubungi team support kami!", "danger");
+                    console.log(xhr.status);
+                    console.log(thrownError);
+                }
+            });
+        }
+
+        function showRiwayatKunjunganBpjs(obj)
+        {
+            data = $(obj).data();
+            $.ajax({
+                url: "https://karawang.epuskesmas.id/pelayanan/showriwayatkunjunganbpjs",
+                method: "GET",
+                dataType: "json",
+                data: {
+                    id: data.id,
+                    _token: "e8awkOiHxoQsBJ48QSHHGhi4cg1v1gR5F9p0iSJg",
+                },
+                success: function(data) {
+                    $("#modal .modal-title").html(data.title);
+                    $("#modal .modal-form").html(data.form);
+                    openmodal("modal-lg");
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                        alert("Terjadi kesalahan sistem, silahkan hubungi team support kami!", "danger");
+                        console.log(xhr.status);
+                        console.log(thrownError);
+                }
+            });
+        }
+
+        function getRiwayatKunjunganBpjs(obj)
+        {
+            data = $(obj).data();
+            $.ajax({
+                url: "https://karawang.epuskesmas.id/pelayanan/getriwayatkunjunganbpjs",
+                method: "GET",
+                dataType: "json",
+                data: {
+                    noasuransi: data.noasuransi,
+                    _token: "e8awkOiHxoQsBJ48QSHHGhi4cg1v1gR5F9p0iSJg",
+                },
+                success: function(data) {
+                    alert(data.message, data.status);
+                    $(obj).removeClass('loading');
+                    if(data.status == "success"){
+                        window.location.reload(true);
+                    }
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert("Terjadi kesalahan sistem, silahkan hubungi team support kami!", "danger");
+                    console.log(xhr.status);
+                    console.log(thrownError);
+                }
+            });
+        }
+
+        function popUpBpjsBelumSkrining(sumber = null)
+        {
+            let swalWithBootstrapButtons = Swal.mixin({
+                customClass: {
+                    confirmButton: 'swal2-styled swal2-confirm',
+                },
+            })
+
+            swalWithBootstrapButtons.fire({
+                type: 'info',
+                title: 'Belum mengisi Skrining BPJS Kesehatan!',
+                customClass: 'swal-wide-pasien',
+                confirmButtonText: 'Lakukan Skrining',
+                html: "<span style='font-size:14px;'>Silakan melakukan skrining riwayat kesehatan melalui Aplikasi<br>Mobile JKN atau klik \"Lakukan Skrining\"</span>",
+            }).then((result) => {
+                if (result.value) {
+                    window.open('https://webskrining.bpjs-kesehatan.go.id/skrining', '_blank');
+                }
+                    if (sumber == 'anamnesa') {
+                        setTimeout(function() {
+                            window.location.reload();
+                        }, 1000);
+                    }
+            });
+        }
+
+        function sinkronBpjs(id)
+        {
+            let url = "https://karawang.epuskesmas.id/pendaftaran/sinkronPendaftaranBpjs";
+
+            $('#sinkron-' + id).removeClass('btn-primary').addClass('btn-gray');
+            $('#sinkron-' + id).html('').html('<i class="fa fa-circle-o-notch fa-spin"></i> Bridging PCare...');
+
+            $.ajax({
+                url: url,
+                method: 'POST',
+                dataType: 'JSON',
+                data: {
+                    _token: "e8awkOiHxoQsBJ48QSHHGhi4cg1v1gR5F9p0iSJg",
+                    id: id
+                },
+                success: function(data) {
+                    alert(data.message, data.status)
+                    if (data.message.includes('Peserta belum mengisi skrining riwayat kesehatan')) {
+                        popUpBpjsBelumSkrining()
+                    } else {
+                        if (data.status != "danger") {
+                            setTimeout(() => {
+                                window.location.reload(true);
+                            }, 2000)
+                        }
+                    }
+
+                },
+                error: function(xhr, ajaxOptions, thrownError) {
+                    alert("Terjadi kesalahan sistem, silahkan hubungi team support kami!", 'danger')
+                }
+            })
+
+            setTimeout(() => {
+                $('#sinkron-' + id).html('').html('Sinkron BPJS');
+                $('#sinkron-' + id).removeClass('btn-gray').addClass('btn-primary');
+            }, 2000)
+        }
+
+        function setSessionWebSocket(action,to = null)
+        {
+            $.ajax({
+                url: "https://karawang.epuskesmas.id/home/setsessionwebsocket",
+                method: 'POST',
+                dataType: "json",
+                data: {
+                    action: action,
+                    for_customsession:to,
+                    _token: "e8awkOiHxoQsBJ48QSHHGhi4cg1v1gR5F9p0iSJg"
+                },
+                success: function(data) {
+                    console.log("success");
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert("Terjadi kesalahan sistem, silahkan hubungi team support kami!", "danger");
+                }
+            });
+        }
+
+        
+        function setDataInterpretasi(){
+            let totalCasePsikologis = $("input:radio.casePsikologis:checked").length;
+            let totalCaseZatAdiktif = $("input:radio.caseZatAdiktif:checked").length;
+            let totalcasePsikotik = $("input:radio.casePsikotik:checked").length;
+            let cekCasePSTD = $("input:radio.CasePSTD:checked").length;
+            let totalCasePSTD = $("input:radio.TotalCasePSTD:checked").length;
+
+            const casePsikologisElem = $('#CasePsikologis');
+            const caseZatAdiktifElem = $('#caseZatAdiktif');
+            const casePsikotikElem = $('#casePsikotik');
+            const casePSTDElem = $('#CasePSTD');
+
+            casePsikologisElem.toggle(
+                    totalCasePsikologis >= 5 && totalCasePsikologis <= 7
+                ).text(
+                    'Pasien terindikasi adanya masalah psikologis'
+                );
+
+                caseZatAdiktifElem.toggle(
+                    totalCaseZatAdiktif === 1
+                ).text(
+                    'Pasien terindikasi adanya gangguan zat psikoaktif'
+                );
+
+                casePsikotikElem.toggle(
+                    totalcasePsikotik >= 1
+                ).text(
+                    'Pasien terindikasi adalanya masalah serius dan perlu penanganan lebih lanjut'
+                );
+
+                casePSTDElem.toggle(
+                    totalCasePSTD >= 1
+                ).text(
+                    cekCasePSTD === 1 ? 'Pasien terindikasi gejala PTSD (Post Traumatic Stress Disorder)' :
+                    'Pasien terindikasi bukan PTSD (Post Traumatic Stress Disorder)'
+                );
+        }
+
+        </script>
+                        <script type="04a95c20435de6f62c74625e-text/javascript">
+                    $(`#checkEnvConfig`).html('<center>Dashboard antrian realtime belum di setting</center>');
+                    $(`#checkEnvConfigRanap`).html('<center>Dashboard rawat inap realtime belum di setting</center>');
+                </script>
+                    <script src="https://karawang.epuskesmas.id/lib/select2/js/select2.min.js" type="04a95c20435de6f62c74625e-text/javascript"></script>
+<script src="https://karawang.epuskesmas.id/lib/select2/js//i18n/id.js" type="04a95c20435de6f62c74625e-text/javascript"></script>
+<script type="04a95c20435de6f62c74625e-text/javascript">
+            $(window).on('load', () => {
+            showNotif();
+        })
+    
+    history.pushState(null, null, location.href);
+    window.onpopstate = function () {
+      history.go(1);
+    };
+
+    const dokterList = [{"id":"0000000000002186","nama":"Hodijatussolihah","ruangan_ids":"0001|0004|0013|0015"},{"id":"0000000000001760","nama":"Devy Rochmapekawati","ruangan_ids":"0001|0009|0004|0012|0013|0015|0019"},{"id":"0000000000001779","nama":"Sri juwitaningsih","ruangan_ids":"0009|0012"},{"id":"0000000000001447","nama":"Devi Silvia","ruangan_ids":"0009"},{"id":"0000000000001767","nama":"Nia Haniah","ruangan_ids":"0009|0012|0014"},{"id":"0000000000001762","nama":"Ikeu sri ratna dewi","ruangan_ids":"0009|0019"},{"id":"0000000000001765","nama":"Prananto","ruangan_ids":"0008|0015|0017"},{"id":"0000000000001768","nama":"Jamaludin","ruangan_ids":"0012"},{"id":"0000000000001446","nama":"Aris Ni\u0027matullah","ruangan_ids":"0015"},{"id":"0000000000001887","nama":"Nana Supriyatna","ruangan_ids":"0015"},{"id":"0000000000001777","nama":"Nida Shobiha","ruangan_ids":"0015"},{"id":"0000000000001379","nama":"Yosef Dani Kuswara","ruangan_ids":"0015"},{"id":"0000000000001757","nama":"Hj. Lilis Hasanah","ruangan_ids":"0019"}]
+    $(() => {
+        loadTable(true);
+
+                    initDokterSelect();
+            $("select[name='ruangan_id']").change((e) => {
+                $('select[name=dokter_id]').select2('destroy');
+                initDokterSelect();
+            });
+        
+        $(`
+            select[name="asuransi_id"],
+            select[name="is_bayar"],
+            select[name="ruangan_id"],
+            select[name="dokter_id"],
+            select[name="status_periksa"],
+            select[name="status_pulang"],
+            select[name="daftar_dari"],
+            select[name="skrining_visual"],
+            select[name="f_klaster"],
+            select[name="siklus_hidup"]
+            select[name="siklus_hidup"]
+        `).bind('change', () => {
+            loadTable()
+        });
+
+        $("input[name='tanggal']").parent().on('dp.change', () => {
+            loadTable()
+        })
+    })
+
+    var date = new Date();
+    var tanggal_now_pendaftaran = new Date(date.getFullYear(), date.getMonth(), date.getDate()+3, 23, 59, 59, 59);
+    $('.date').datetimepicker({
+        locale:'id',
+        format:'DD-MM-YYYY',
+        maxDate:tanggal_now_pendaftaran,
+        defaultDate: null,
+        useCurrent: false,
+        ignoreReadonly: true
+    });
+
+    function loadTable(initDatatable = false) {
+        generateDatatable($('#datatableWrapper'), {
+            url: 'https://karawang.epuskesmas.id/pendaftaran',
+            columns: JSON.parse('[{"data":"number","searchable":0,"orderable":0,"isSerialNumber":1},{"data":"id","searchable":1,"orderable":1},{"data":"tanggal","searchable":1,"orderable":1},{"data":"pelayanan.no_pendaftaran","searchable":0,"orderable":0},{"data":"pasienData","searchable":0,"orderable":0},{"data":"penyakitKhusus","searchable":0,"orderable":0},{"data":"pelayananRuanganNama","searchable":0,"orderable":0},{"data":"pelayananDokter","searchable":0,"orderable":0},{"data":"pasienAsuransi","searchable":0,"orderable":0},{"data":"pendaftaranIsBayar","searchable":0,"orderable":0},{"data":"icon_bpjs","searchable":0,"orderable":0},{"data":"kunjungan","searchable":0,"orderable":1},{"data":"pelayanan.statuspulang.nama","searchable":0,"orderable":0},{"data":"btn_print","searchable":0,"orderable":0}]'),
+            payload: {
+                ruangan_id: $("select[name='ruangan_id']"),
+                dokter_id: $("select[name='dokter_id']"),
+                tanggal: $("input[name='tanggal']"),
+                status_periksa: $("select[name='status_periksa']"),
+                status_pulang: $("select[name='status_pulang']"),
+                daftar_dari: $("select[name='daftar_dari']"),
+                asuransi_id: $("select[name='asuransi_id']"),
+                is_bayar: $("select[name='is_bayar']"),
+                skrining_visual: $("select[name='skrining_visual']"),
+                f_klaster: $("select[name='f_klaster']"),
+                siklus_hidup: $("select[name='siklus_hidup']"),
+            },
+            initDatatable,
+            bindElement: (record, element) => {
+                if (record.pelayanan.tanggal_selesai !== '') {
+                    $(element).addClass('success')
+                } else if (record.pelayanan.tanggal_mulai !== '') {
+                    $(element).addClass('danger')
+                }
+                if(record.pelayanan.id == undefined){
+                  $(element).removeClass()
+                  $(element).addClass('default')
+                }
+                bindElementDoubleClick($(element), () => {
+                    window.location.replace("https://karawang.epuskesmas.id/pendaftaran/show/idCustom".replace('idCustom', record.id))
+                })
+            }
+        })
+        checkSubDropdownSiklusHidup($("#f_klaster").val())
+    }
+
+    function printPendaftaranFromtable(print) {
+        window.open(`https://karawang.epuskesmas.id/pendaftaran/print/${print}`);
+    }
+    function printIzinKhitanFromtable(print) {
+        window.open(`https://karawang.epuskesmas.id/pendaftaran/print/${print}?type=izin_khitan`);
+    }
+    function printPernyataanKhitanFromtable(print) {
+        window.open(`https://karawang.epuskesmas.id/pendaftaran/print/${print}?type=pernyataan_khitan`);
+    }
+    function printCatatanKencingFromtable(print) {
+        window.open(`https://karawang.epuskesmas.id/pendaftaran/print/${print}?type=catatan_kencing`);
+    }
+
+    function showFiturTunda() {
+        $.ajax({
+            url: "https://karawang.epuskesmas.id/pendaftaran/showfiturtunda",
+            method: 'GET',
+            dataType: "json",
+            data: {
+                _token: "e8awkOiHxoQsBJ48QSHHGhi4cg1v1gR5F9p0iSJg"
+            },
+            success: function(data) {
+                if (typeof data.status !== 'undefined' && data.status == "danger") {
+                    alert(data.message, data.status);
+                }
+
+                if (data.title != '' && data.title != undefined) {
+                    $('#modal .modal-title').html(data.title);
+                    $('#modal .modal-form').html(data.form);
+                    openmodal("modal-md");
+                }
+            },
+            error: function(xhr, ajaxOptions, thrownError) {
+                alert("Terjadi kesalahan sistem, silahkan hubungi team support kami!", "danger");
+            }
+        });
+    }
+
+    function printAll() {
+        let ruangan_id = $('select[name="ruangan_id"]').val();
+        let tanggal = $('input[name="tanggal"]').val();
+        let status_periksa = $('select[name="status_periksa"]').val();
+        let status_pulang = $('select[name="status_pulang"]').val();
+        let daftar_dari = $('select[name="daftar_dari"]').val();
+        let seacrchKey = $('input[name="searchKey"]').val();
+        let f_klaster = $('select[name="f_klaster"] :selected').val();
+        let siklus_hidup = $('select[name="siklus_hidup"] :selected').val();
+        let url = "https://karawang.epuskesmas.id/pendaftaran/printall";
+        window.open(url + '?ruangan_id=' + ruangan_id + '&tanggal=' + tanggal +
+            '&status_periksa=' + status_periksa + '&status_pulang=' + status_pulang +
+            '&key=' + seacrchKey + '&daftar_dari=' + daftar_dari + '&f_klaster=' + f_klaster + '&siklus_hidup=' + siklus_hidup);
+    }
+
+    function exportExcelSelf() {
+        let ruangan_id = $('select[name="ruangan_id"]').val();
+        let tanggal = $('input[name="tanggal"]').val();
+        let status_periksa = $('select[name="status_periksa"]').val();
+        let status_pulang = $('select[name="status_pulang"]').val();
+        let daftar_dari = $('select[name="daftar_dari"]').val();
+        let seacrchKey = $('input[name="searchKey"]').val();
+        let f_klaster = $('select[name="f_klaster"] :selected').val();
+        let siklus_hidup = $('select[name="siklus_hidup"] :selected').val();
+        let url = "https://karawang.epuskesmas.id/pendaftaran/exportall";
+        window.open(url + '?ruangan_id=' + ruangan_id + '&tanggal=' + tanggal +
+            '&status_periksa=' + status_periksa + '&status_pulang=' + status_pulang +
+            '&key=' + seacrchKey + '&daftar_dari=' + daftar_dari + '&f_klaster=' + f_klaster + '&siklus_hidup=' + siklus_hidup);
+    }
+
+    function showPrintExport() {
+        $("#modal .modal-title").html('Print');
+        $("#modal .modal-form").html('test');
+        openmodal("modal-sm");
+    }
+
+    function updateStatusBayar(id) {
+        let statusBayar = $('#status_bayar_'+id).prop('checked') ? '1' : '0';
+        let tarif = $('#tarif_'+id).val();
+        $.ajax({
+            url: "https://karawang.epuskesmas.id/pendaftaran/update" + "/" + id,
+            method: 'POST',
+            dataType: "json",
+            data: {
+                statusBayar: statusBayar,
+                tarif: tarif,
+                _token: "e8awkOiHxoQsBJ48QSHHGhi4cg1v1gR5F9p0iSJg"
+            },
+            beforeSend: function() {
+                alert('Melakukan update status pembayaran', 'warning');
+            },
+            success: function(data) {
+                alert(data.message, data.status);
+                loadTable();
+                if (statusBayar == '1' && data.status == 'success') {
+                    printPendaftaranFromtable(id);
+                }
+            },
+            error: function(xhr, ajaxOptions, thrownError) {
+                alert("Terjadi kesalahan sistem, silahkan hubungi team support kami!", "danger");
+            }
+        });
+    }
+
+    $('.datePickerBirthdate').datetimepicker({
+        locale:'id',
+        format:'DD-MM-YYYY',
+        defaultDate: null,
+        useCurrent: false,
+        ignoreReadonly: true,
+        maxDate: new Date()
+    })
+    $('.datePickerBirthdate').on('dp.change', function (e) {
+        $('input[name="age"]').val(Math.floor(moment().diff(e.date._d, 'years', true)))
+    })
+    $('#nik').keypress(function(e) {
+        let length = this.value.length
+
+        if (length >= 16) {
+            e.preventDefault()
+        }
+    })
+    function modalGeneralConsent(id, str, patient, hasGeneralConsent = '0') {
+        $('#modalSaveAndNext').html('Simpan & Lanjutkan')
+        $('#deleteDataPatient').addClass('hide')
+        $('#modalFooterEditable').addClass('hide')
+        $('#modalFooterCreate').removeClass('hide')
+        patientData = patient
+        generalConsentIsSet = hasGeneralConsent
+
+        const generalConsentPatient = patientData.split('|')
+        const generalConsent = str.split('|')
+        $(".modal-body #registrationId").val(id)
+        $(".modal-body #responsible").val(generalConsent[1]).change()
+        $(".modal-body #patientName").val(generalConsentPatient[0])
+        $(".modal-body #full_name").val(generalConsent[2])
+        $(".modal-body #nik").val(generalConsent[3])
+        $(".modal-body #birthdate").val(generalConsent[4])
+        $(".modal-body #age").val(generalConsent[5])
+        $(".modal-body #address").val(generalConsent[7])
+        $(".modal-body #generalConsentId").val(generalConsent[8])
+
+        if (generalConsent[0] == '1') {
+            $(".modal-body input[name=acting_as][value='pasien']").prop('checked', true)
+        } else if(generalConsent[0] == '0') {
+            $(".modal-body input[name=acting_as][value='penanggung_jawab']").prop('checked', true)
+        }
+
+        if (generalConsent[6] === 'Laki-laki') {
+            $(".modal-body input[name=gender][value='L']").prop('checked', true)
+        } else if(generalConsent[6] === 'Perempuan') {
+            $(".modal-body input[name=gender][value='P']").prop('checked', true)
+        }
+
+        if (generalConsent[2]) {
+            $('#modalSaveAndNext').html('Ubah & Lanjutkan')
+            $('#deleteDataPatient').removeClass('hide')
+        }
+
+        if (generalConsentIsSet === '1') {
+            $('#modalFooterEditable').removeClass('hide')
+            $('#modalFooterCreate').addClass('hide')
+            $('.modal-body .datePickerBirthdate').datetimepicker('disable')
+            $('.modal-body input[name=acting_as]').attr('disabled', true)
+            $(".modal-body #responsible").prop('disabled', true)
+            $(".modal-body #full_name").prop('readonly', true)
+            $(".modal-body #nik").prop('readonly', true)
+            $(".modal-body #birthdate").prop('readonly', true)
+            $(".modal-body #age").prop('readonly', true)
+            $('.modal-body input[name=gender]').attr('disabled', true)
+            $(".modal-body #address").prop('readonly', true)
+        }
+
+        $('#modalGeneralConsent').modal({backdrop: 'static', keyboard: false})
+    }
+    function changeActingAs(obj) {
+        $('#responsible').addClass('hide')
+        $(".modal-body #full_name").prop('readonly', false)
+        $('.modal-body input[name=gender]').removeClass('readonly')
+        $('.modal-body #radioGenderL').removeClass('readonly')
+        $('.modal-body #radioGenderP').removeClass('readonly')
+        const generalConsent = patientData.split('|')
+
+        if (obj.value === 'penanggung_jawab') {
+            $('#responsible').removeClass('hide')
+            $(".modal-body #patientName").val(generalConsent[0])
+            $(".modal-body #full_name").val('')
+            $(".modal-body #nik").val('')
+            $(".modal-body #birthdate").val('')
+            $(".modal-body #age").val('')
+            $(".modal-body #address").val('')
+        } else {
+            $(".modal-body #patientName").val(generalConsent[0])
+            $(".modal-body #full_name").val(generalConsent[0])
+            $(".modal-body #nik").val(generalConsent[1])
+            $(".modal-body #birthdate").val(generalConsent[2])
+            $(".modal-body #age").val(generalConsent[3])
+            if (generalConsent[4] === 'Laki-laki') {
+                $(".modal-body input[name=gender][value='L']").prop('checked', true)
+            } else if(generalConsent[4] === 'Perempuan') {
+                $(".modal-body input[name=gender][value='P']").prop('checked', true)
+            }
+            $(".modal-body #address").val(generalConsent[5])
+            $(".modal-body #full_name").prop('readonly', true)
+            $('.modal-body input[name=gender]').addClass('readonly')
+            $('.modal-body #radioGenderL').addClass('readonly')
+            $('.modal-body #radioGenderP').addClass('readonly')
+        }
+    }
+    function deleteGeneralConsent(obj) {
+        if ((!$('#password_otorisasi').val())) {
+            alert('Password otorisasi wajib diisi', 'danger')
+            return false
+        }
+
+        let registrationId = $('.modal-body #registrationId').val()
+
+        let url = "https://karawang.epuskesmas.id/generalConsent/destroy/:id"
+        url = url.replace(':id', registrationId)
+
+        $.ajax({
+            url: url,
+            method: 'POST',
+            dataType: 'JSON',
+            data: {
+                _token: "e8awkOiHxoQsBJ48QSHHGhi4cg1v1gR5F9p0iSJg",
+                password_otorisasi: $('#password_otorisasi').val()
+            },
+            beforeSend: function() {},
+            success: function(data) {
+                alert(data.message, data.status)
+
+                if (data.status === 'success') {
+                    setTimeout(() => {
+                        window.location.reload()
+                    }, 2000)
+                }
+            },
+            error: function(xhr, ajaxOptions, thrownError) {
+                alert("Terjadi kesalahan sistem, silahkan hubungi team support kami!", 'danger')
+            }
+        })
+    }
+    function printGeneralConsent(obj) {
+        let registrationId = $('.modal-body #registrationId').val()
+        let url = "https://karawang.epuskesmas.id/generalConsent/print_v2/:id"
+        url = url.replace(':id', registrationId)
+        window.open(url, '', 'left=0,top=0')
+    }
+    function showDetailgeneralConsent(obj) {
+        let registrationId = $('.modal-body #registrationId').val()
+
+        let url = "https://karawang.epuskesmas.id/generalConsent/show/:id"
+        url = url.replace(':id', registrationId)
+        window.location.href = url
+    }
+    function saveAndNext(obj) {
+        let unindexedArray = $('#formGeneralConsent').serializeArray()
+        let indexedArray = {}
+
+        $.map(unindexedArray, function(n, i){
+            indexedArray[n['name']] = n['value']
+        })
+
+        $.ajax({
+            url: "https://karawang.epuskesmas.id/generalConsent/store",
+            method: 'POST',
+            dataType: 'JSON',
+            data: {
+                generalConsent: indexedArray,
+                _token: "e8awkOiHxoQsBJ48QSHHGhi4cg1v1gR5F9p0iSJg"
+            },
+            beforeSend: function() {
+                const arr = ['generalConsentId', 'patientName']
+
+                if ($('input[name="acting_as"]:checked').val() === 'pasien') {
+                    arr.push('responsible')
+                }
+
+                $empty = $('form#formGeneralConsent').find(':input').filter(function() {
+                    if (!arr.includes(this.id)) {
+                        return this.value === ''
+                    }
+                })
+
+                if($empty.length) {
+                    let field = $empty[0]?.id ?? ''
+
+                    alert(`Field ${field} bertanda <span style="color:red;">*</span> wajib diisi`, 'danger')
+                    return false
+                }else{
+                    return true
+                }
+            },
+            success: function(data) {
+                if (data?.data?.pendaftaran_id) {
+                    let url = "https://karawang.epuskesmas.id/generalConsent/show/:id"
+                    url = url.replace(':id', data.data.pendaftaran_id)
+                    window.location.href = url
+                }
+                alert(data.message, data.status)
+            },
+            error: function(xhr, ajaxOptions, thrownError) {
+                alert("Terjadi kesalahan sistem, silahkan hubungi team support kami!", 'danger')
+            }
+        })
+    }
+    function modalDeleteGeneralConsent(state = null) {
+        if (state === 'cancel') {
+            $('#delete-general_consent-modal').modal('hide')
+            return false
+        }
+
+        $('#modalGeneralConsent').modal('hide')
+        $('#deleteRegistrationId').html($('#registrationId').val())
+        $('#deletePatient').html($('#patientName').val())
+        $('#deleteResponsible').html($('#full_name').val())
+        $('#delete-general_consent-modal').modal('show')
+    }
+    function deleteDataPatient(obj) {
+        Swal.fire({
+            title: 'HAPUS GENERAL CONSENT PASIEN',
+            text: "Apakah Anda Yakin Menghapus Data Ini ?",
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Ya, Hapus ...',
+            cancelButtonText: 'Tidak'
+        }).then((result) => {
+            if (result.value) {
+                let registrationId = $('.modal-body #registrationId').val()
+
+                let url = "https://karawang.epuskesmas.id/generalConsent/destroy/:id"
+                url = url.replace(':id', registrationId)
+
+                $.ajax({
+                    url: url,
+                    method: 'POST',
+                    dataType: 'JSON',
+                    data: {
+                        _token: "e8awkOiHxoQsBJ48QSHHGhi4cg1v1gR5F9p0iSJg",
+                        soft_delete: true
+                    },
+                    success: function(data) {
+                        alert(data.message, data.status)
+
+                        if (data.status === 'success') {
+                            setTimeout(() => {
+                                window.location.reload()
+                            }, 2000)
+                        }
+                    },
+                    error: function(xhr, ajaxOptions, thrownError) {
+                        alert("Terjadi kesalahan sistem, silahkan hubungi team support kami!", 'danger')
+                    }
+                })
+            }
+        })
+    }
+    function checkSubDropdownSiklusHidup(def = ''){
+        var klaster = $("#f_klaster").val() || def;
+        var urlParams = new URLSearchParams(window.location.search);
+        let selected = urlParams.get('siklus_hidup') || null;
+        let disabled = true
+        let optionSiklusHidup = '';
+        if(klaster == 'Klaster 2'){
+            optionSiklusHidup = ` <option value="Ibu Hamil, Bersalin & Nifas" ${selected=='Ibu Hamil, Bersalin & Nifas' ? 'selected' : ''}>Ibu Hamil, Bersalin & Nifas</option>
+                            <option value="Balita dan Anak Pra-sekolah" ${selected=='Balita dan Anak Pra-sekolah' ? 'selected' : ''}>Balita dan Anak Pra-sekolah</option>
+                            <option value="Anak Usia Sekolah dan Remaja" ${selected=='Anak Usia Sekolah dan Remaja' ? 'selected' : ''}>Anak Usia Sekolah dan Remaja</option>`;
+        }else if(klaster == 'Klaster 3'){
+            optionSiklusHidup = `<option value="Usia Dewasa" ${selected=='Usia Dewasa' ? 'selected' : ''}>Usia Dewasa</option>
+                            <option value="Lanjut Usia" ${selected=='Lanjut Usia' ? 'selected' : ''}>Lanjut Usia</option>`;
+        }else if(klaster == 'Klaster 4'){
+            optionSiklusHidup = `<option value="Kesehatan Lingkungan" ${selected=='Kesehatan Lingkungan' ? 'selected' : ''}>Kesehatan Lingkungan</option>
+                            <option value="Surveilans" ${selected=='Surveilans' ? 'selected' : ''}>Surveilans</option>`;
+        }
+        if(optionSiklusHidup!=''){
+            disabled = false;
+        }
+        optionSiklusHidup = `<option value=""> - Semua Siklus Hidup -  </option>`+optionSiklusHidup;
+        $("#siklus_hidup").prop('disabled',disabled);
+        $("#siklus_hidup").html(optionSiklusHidup);
+    }
+    $('#form_search').on('reset', function(e)
+    {
+        $("#f_klaster").val('')
+        checkSubDropdownSiklusHidup('')
+    });
+
+    function initDokterSelect()
+    {
+        const selectedRuangan = $('select[name="ruangan_id"]').val();
+        const selectSemuaRuangan = selectedRuangan === '0';
+        let data = dokterList.filter((dokter) => {
+            if (selectSemuaRuangan) {
+                return dokter;
+            }
+
+            return dokter.ruangan_ids.includes(selectedRuangan);
+        }).map((dokter) => {
+            return {
+                id: dokter.id,
+                text: dokter.nama
+            }
+        });
+
+        const defaultLabel = data.length > 0 ? '- Semua Dokter -' : 'Tidak Ada Dokter';
+
+        $(`select[name="dokter_id"]`).html(`<option value="0"> ${defaultLabel} </option>`).select2({
+            width: '100%',
+            language: 'id',
+            data: data,
+            minimumResultsForSearch: -1
+        });
+    }
+</script>
+    <script src="/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js" data-cf-settings="04a95c20435de6f62c74625e-|49" defer></script></body>
+</html>
